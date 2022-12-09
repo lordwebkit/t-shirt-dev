@@ -32,10 +32,10 @@ export default createStore({
       state.cart.splice(index, 1);
     },
     DECREMENT_QUANTITY_CARD_ITEM: (state, index) => {
-      state.cart[index].quantity <= 1 ? 1 : state.cart[index].quantity--
+      state.cart[index].quantity <= 1 ? 1 : state.cart[index].quantity--;
     },
     INCREMENT_QUANTITY_CARD_ITEM: (state, index) => {
-      state.cart[index].quantity++
+      state.cart[index].quantity++;
     },
   },
   actions: {

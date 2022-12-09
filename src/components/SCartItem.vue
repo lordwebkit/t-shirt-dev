@@ -30,7 +30,11 @@ export default {
       },
     },
   },
-  emits: ["deleteFromCart","decrementQuantityCartItem", "incrementQuantityCartItem"],
+  emits: [
+    "deleteFromCart",
+    "decrementQuantityCartItem",
+    "incrementQuantityCartItem",
+  ],
   setup() {
     const getImageUrl = (name) => {
       return new URL(`../assets/images/${name}`, import.meta.url).href;

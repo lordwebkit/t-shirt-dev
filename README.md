@@ -1,4 +1,5 @@
 # Simple-shop
+
 This shop is delevopmented on Vue 3 + Vuex + Vue-router
 
 ## Project Setup

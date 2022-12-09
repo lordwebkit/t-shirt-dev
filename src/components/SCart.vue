@@ -15,7 +15,7 @@
     />
     <div class="s-cart__total">
       <p>Total:</p>
-      <p>{{CART.length === 0 ? 0 : cartTotalCost }}</p>
+      <p>{{ CART.length === 0 ? 0 : cartTotalCost }}</p>
     </div>
   </div>
 </template>
@@ -32,12 +32,16 @@ export default {
     ...mapGetters(["CART"]),
     cartTotalCost() {
       return this.CART.reduce((sum, el) => {
-        return sum + (el.price * el.quantity);
+        return sum + el.price * el.quantity;
       }, 0);
     },
   },
   methods: {
-    ...mapActions(["DELETE_FROM_CART", "DECREMENT_QUANTITY_CARD_ITEM", "INCREMENT_QUANTITY_CARD_ITEM"]),
+    ...mapActions([
+      "DELETE_FROM_CART",
+      "DECREMENT_QUANTITY_CARD_ITEM",
+      "INCREMENT_QUANTITY_CARD_ITEM",
+    ]),
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
     },
@@ -46,7 +50,7 @@ export default {
     },
     incrementQuantityCartItem(index) {
       this.INCREMENT_QUANTITY_CARD_ITEM(index);
-    }
+    },
   },
 };
 </script>
