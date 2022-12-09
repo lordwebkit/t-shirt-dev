@@ -13,4 +13,6 @@ export default {
   <s-main-wrapper />
 </template>
 
-<style></style>
+<style>
+@import url("@/assets/styles/normalize.css");
+</style>
