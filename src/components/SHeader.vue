@@ -2,17 +2,21 @@
   <div class="s-header-wrapper">
     <header class="s-header s-grid-wrapper">
       <div class="s-header__logo-wrapper">
-        <img
-          class="s-header__logo"
-          :src="getImageUrl('logo.svg')"
-          alt="T-shirt logo company"
-        />
+        <router-link :to="{ name: 'catalog' }">
+          <img
+            class="s-header__logo"
+            :src="getImageUrl('logo.svg')"
+            alt="T-shirt logo company"
+          />
+        </router-link>
       </div>
-      <img
-        class="s-header__cart"
-        :src="getImageUrl('shopping-cart-base.svg')"
-        alt="Cart icon"
-      />
+      <router-link :to="{ name: 'cart' }">
+        <img
+          class="s-header__cart"
+          :src="getImageUrl('shopping-cart-base.svg')"
+          alt="Cart icon"
+        />
+      </router-link>
     </header>
   </div>
 </template>
