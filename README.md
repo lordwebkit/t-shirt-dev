@@ -13,7 +13,12 @@ npm install
 ```sh
 npm run dev
 ```
+### Get data from database
 
+```sh
+json-server --watch db.json
+```
+---
 ### Compile and Minify for Production
 
 ```sh
