@@ -1,17 +1,20 @@
 <template>
-  <div class="s-catalog">
-    <router-link :to="{ name: 'cart' }">
-      <div class="s-catalog__link-cart">Cart: {{ CART.length }}</div>
-    </router-link>
-    <h1>Catalog</h1>
-    <div class="s-catalog__list">
-      <s-catalog-item
-        v-for="product in PRODUCTS"
-        :key="product.article"
-        :product-data="product"
-        @add-to-cart="addToCart"
-      />
-    </div>
+  <div class="s-catalog-wrapper">
+    <section class="s-catalog s-grid-wrapper">
+      <div class="s-catalog__title-wrapper">
+        <h2 class="s-title s-catalog__title">
+          Catalog differen T-shirt for a base look
+        </h2>
+      </div>
+      <div class="s-catalog__list">
+        <s-catalog-item
+          v-for="product in PRODUCTS"
+          :key="product.article"
+          :product-data="product"
+          @add-to-cart="addToCart"
+        />
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -51,6 +54,11 @@ export default {
   &__link-cart {
     padding: $padding * 2;
     border: solid 1px #aeaeae;
+  }
+  &__title {
+    &-wrapper {
+      margin: 20px 0 25px 0;
+    }
   }
 }
 </style>
