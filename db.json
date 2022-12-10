@@ -2,64 +2,64 @@
   "products": [
     {
       "image": "1.png",
-      "name": "T-shirt 1",
-      "price": 100,
+      "name": "T-shirt classic white",
+      "price": 10,
       "article": "T1",
       "available": true
     },
     {
       "image": "2.png",
-      "name": "T-shirt 2",
-      "price": 150,
+      "name": "T-shirt classic black",
+      "price": 10,
       "article": "T2",
       "available": true
     },
     {
       "image": "3.png",
-      "name": "T-shirt 3",
-      "price": 200,
+      "name": "T-shirt classic green",
+      "price": 10,
       "article": "T3",
-      "available": false
+      "available": true
     },
     {
       "image": "4.png",
-      "name": "T-shirt 4",
-      "price": 300,
+      "name": "T-shirt base maroon",
+      "price": 8,
       "article": "T4",
       "available": true
     },
     {
       "image": "5.png",
-      "name": "T-shirt 5",
-      "price": 500,
+      "name": "T-shirt base gray",
+      "price": 8,
       "article": "T5",
       "available": false
     },
     {
       "image": "6.png",
-      "name": "T-shirt 6",
-      "price": 600,
+      "name": "T-shirt base dark blue",
+      "price": 8,
       "article": "T6",
       "available": true
     },
     {
       "image": "7.png",
-      "name": "T-shirt 7",
-      "price": 600,
+      "name": "T-shirt summer lemmony",
+      "price": 9,
       "article": "T7",
       "available": true
     },
     {
       "image": "8.png",
-      "name": "T-shirt 8",
-      "price": 600,
+      "name": "T-shirt summer pink",
+      "price": 9,
       "article": "T8",
       "available": true
     },
     {
       "image": "9.png",
-      "name": "T-shirt 9",
-      "price": 600,
+      "name": "T-shirt summer bright blue",
+      "price": 9,
       "article": "T9",
       "available": true
     }
