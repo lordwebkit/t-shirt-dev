@@ -52,41 +52,41 @@ export default {
       this.carouselData.forEach((ext) => {
         ext.translate++;
       });
-      this.currentSlideIndex--
-      if (this.currentSlideIndex === 0) this.prevMagic()
+      this.currentSlideIndex--;
+      if (this.currentSlideIndex === 0) this.prevMagic();
     },
     nextSlide() {
       this.carouselData.forEach((ext) => {
         ext.translate--;
       });
-      this.currentSlideIndex++
-      if (this.currentSlideIndex === 4) this.nextMagic()
+      this.currentSlideIndex++;
+      if (this.currentSlideIndex === 4) this.nextMagic();
     },
     prevMagic() {
-      const vm = this
+      const vm = this;
       setTimeout(() => {
         vm.isAnimated = false;
         vm.carouselData.forEach((ext) => {
           ext.translate = ext.translate - 3;
-        })
-        vm.currentSlideIndex = vm.currentSlideIndex + 3
-      }, 1000)
+        });
+        vm.currentSlideIndex = vm.currentSlideIndex + 3;
+      }, 1000);
       setTimeout(() => {
-        this.isAnimated = true
-      }, 1020)
+        this.isAnimated = true;
+      }, 1020);
     },
     nextMagic() {
-      const vm = this
+      const vm = this;
       setTimeout(() => {
         vm.isAnimated = false;
         vm.carouselData.forEach((ext) => {
           ext.translate = ext.translate + 3;
-        })
-        vm.currentSlideIndex = vm.currentSlideIndex - 3
-      }, 1000)
+        });
+        vm.currentSlideIndex = vm.currentSlideIndex - 3;
+      }, 1000);
       setTimeout(() => {
-        this.isAnimated = true
-      }, 1020)
+        this.isAnimated = true;
+      }, 1020);
     },
   },
 };

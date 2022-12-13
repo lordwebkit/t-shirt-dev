@@ -3,7 +3,7 @@
     class="s-carousel-item"
     :class="{ 's-carousel-item_animated': isAnimated }"
     :style="{
-      transform: `translateX(calc(${(carouselItemData.translate * 100)}%))`,
+      transform: `translateX(calc(${carouselItemData.translate * 100}%))`,
     }"
   >
     <img
@@ -24,7 +24,7 @@ export default {
     isAnimated: {
       type: Boolean,
       default: () => {},
-    }
+    },
   },
   setup() {
     const getImageUrl = (name) => {
