@@ -4,11 +4,27 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     products: [],
+    publication: [],
     cart: [],
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
+    },
+    SET_PUBLICATION_TO_STATE: (state, publication) => {
+      let extendedPublication = [];
+      extendedPublication.push(
+        Object.assign({}, publication[publication.length - 1])
+      );
+      extendedPublication = extendedPublication.concat(publication);
+      extendedPublication.push(Object.assign({}, publication[0]));
+
+      extendedPublication.forEach((ext, index) => {
+        ext.article = `P${index}`;
+        ext.translate = -1;
+      });
+
+      state.publication = extendedPublication;
     },
     SET_CART: (state, product) => {
       if (state.cart.length) {
@@ -52,6 +68,19 @@ export default createStore({
           return error;
         });
     },
+    GET_PUBLICATION_FROM_API({ commit }) {
+      return axios("http://localhost:3000/publication", {
+        method: "GET",
+      })
+        .then((publication) => {
+          commit("SET_PUBLICATION_TO_STATE", publication.data);
+          return publication;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
+    },
     ADD_TO_CART({ commit }, product) {
       commit("SET_CART", product);
     },
@@ -68,6 +97,9 @@ export default createStore({
   getters: {
     PRODUCTS(state) {
       return state.products;
+    },
+    PUBLICATION(state) {
+      return state.publication;
     },
     CART(state) {
       return state.cart;
