@@ -10,13 +10,22 @@
           />
         </router-link>
       </div>
-      <router-link :to="{ name: 'cart' }">
-        <img
-          class="s-header__cart"
-          :src="getImageUrl('shopping-cart-base.svg')"
-          alt="Cart icon"
-        />
-      </router-link>
+      <div class="s-header__link">
+        <router-link :to="{ name: 'catalog' }">
+          <img
+            class="s-header__catalog"
+            :src="getImageUrl('t-shirt.svg')"
+            alt="Catalog icon"
+          />
+        </router-link>
+        <router-link :to="{ name: 'cart' }">
+          <img
+            class="s-header__cart"
+            :src="getImageUrl('shopping-cart-base.svg')"
+            alt="Cart icon"
+          />
+        </router-link>
+      </div>
     </header>
   </div>
 </template>
@@ -43,9 +52,19 @@ export default {
   &__logo {
     width: 200px;
   }
+  &__link {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__catalog {
+    width: 48px;
+    height: 48px;
+  }
   &__cart {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
 }
 </style>
