@@ -37,7 +37,7 @@ export default {
     SCartItem,
   },
   computed: {
-    ...mapGetters(["CART"]),
+    ...mapGetters("cart", ["CART"]),
     cartTotalCost() {
       return this.CART.reduce((sum, el) => {
         return sum + el.price * el.quantity;
@@ -48,7 +48,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions([
+    ...mapActions("cart", [
       "DELETE_FROM_CART",
       "DECREMENT_QUANTITY_CARD_ITEM",
       "INCREMENT_QUANTITY_CARD_ITEM",
