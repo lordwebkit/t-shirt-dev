@@ -11,22 +11,21 @@ export default {
     },
   },
   actions: {
-    GET_PRODUCTS_FROM_API({ commit }) {
-      return axios("http://localhost:3000/products", {
-        method: "GET",
-      })
-        .then((products) => {
-          commit("SET_PRODUCTS_TO_STATE", products.data);
-          return products;
-        })
-        .catch((error) => {
-          console.log(error);
-          return error;
+    async getProductsFromApi({ commit }) {
+      try {
+        const products = await axios("http://localhost:3000/products", {
+          method: "GET",
         });
+        commit("SET_PRODUCTS_TO_STATE", products.data);
+        return products;
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
     },
   },
   getters: {
-    PRODUCTS(state) {
+    products(state) {
       return state.products;
     },
   },

@@ -25,29 +25,29 @@ export default {
     REMOVE_FROM_CART: (state, index) => {
       state.cart.splice(index, 1);
     },
-    DECREMENT_QUANTITY_CARD_ITEM: (state, index) => {
+    DECREMENT_QUANTITY_CART_ITEM: (state, index) => {
       state.cart[index].quantity <= 1 ? 1 : state.cart[index].quantity--;
     },
-    INCREMENT_QUANTITY_CARD_ITEM: (state, index) => {
+    INCREMENT_QUANTITY_CART_ITEM: (state, index) => {
       state.cart[index].quantity++;
     },
   },
   actions: {
-    ADD_TO_CART({ commit }, product) {
+    addToCart({ commit }, product) {
       commit("SET_CART", product);
     },
-    DELETE_FROM_CART({ commit }, index) {
+    deleteFromCart({ commit }, index) {
       commit("REMOVE_FROM_CART", index);
     },
-    INCREMENT_QUANTITY_CARD_ITEM({ commit }, index) {
-      commit("INCREMENT_QUANTITY_CARD_ITEM", index);
+    incrementQuantityCartItem({ commit }, index) {
+      commit("INCREMENT_QUANTITY_CART_ITEM", index);
     },
-    DECREMENT_QUANTITY_CARD_ITEM({ commit }, index) {
-      commit("DECREMENT_QUANTITY_CARD_ITEM", index);
+    decrementQuantityCartItem({ commit }, index) {
+      commit("DECREMENT_QUANTITY_CART_ITEM", index);
     },
   },
   getters: {
-    CART(state) {
+    cart(state) {
       return state.cart;
     },
   },
