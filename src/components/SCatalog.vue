@@ -8,7 +8,7 @@
       </div>
       <div class="s-catalog__list">
         <s-catalog-item
-          v-for="product in PRODUCTS"
+          v-for="product in products"
           :key="product.article"
           :product-data="product"
           @add-to-cart="addToCart"
@@ -30,16 +30,15 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters("products", ["PRODUCTS", "CART"]),
+    ...mapGetters("products", ["products"]),
+    ...mapGetters("cart", ["cart"]),
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API();
+    this.getProductsFromApi();
   },
   methods: {
-    ...mapActions("products", ["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
-    addToCart(data) {
-      this.ADD_TO_CART(data);
-    },
+    ...mapActions("products", ["getProductsFromApi"]),
+    ...mapActions("cart", ["addToCart"]),
   },
 };
 </script>

@@ -2,7 +2,7 @@
   <div class="s-main-wrapper">
     <aside class="s-aside"></aside>
     <main class="s-main">
-      <s-carousel :carousel-data="PUBLICATION" />
+      <s-carousel :carousel-data="publication" />
     </main>
   </div>
 </template>
@@ -16,13 +16,13 @@ export default {
     SCarousel,
   },
   computed: {
-    ...mapGetters("publication", ["PUBLICATION"]),
+    ...mapGetters("publication", ["publication"]),
   },
   mounted() {
-    this.GET_PUBLICATION_FROM_API();
+    this.getPublicationFromApi();
   },
   methods: {
-    ...mapActions("publication", ["GET_PUBLICATION_FROM_API"]),
+    ...mapActions("publication", ["getPublicationFromApi"]),
   },
 };
 </script>

@@ -10,12 +10,10 @@
         </h2>
       </div>
       <s-cart-item
-        v-for="(item, index) in CART"
+        v-for="(item, index) in cart"
         :key="item.article"
         :cart-item-data="item"
-        @delete-from-cart="deleteFromCart(index)"
-        @decrement-quantity-cart-item="decrementQuantityCartItem(index)"
-        @increment-quantity-cart-item="incrementQuantityCartItem(index)"
+        :index="index"
       />
       <div
         class="s-cart__buy-wrapper"
@@ -37,30 +35,14 @@ export default {
     SCartItem,
   },
   computed: {
-    ...mapGetters("cart", ["CART"]),
+    ...mapGetters("cart", ["cart"]),
     cartTotalCost() {
-      return this.CART.reduce((sum, el) => {
+      return this.cart.reduce((sum, el) => {
         return sum + el.price * el.quantity;
       }, 0);
     },
     cartEmpty() {
-      return this.CART.length === 0 ? true : false;
-    },
-  },
-  methods: {
-    ...mapActions("cart", [
-      "DELETE_FROM_CART",
-      "DECREMENT_QUANTITY_CARD_ITEM",
-      "INCREMENT_QUANTITY_CARD_ITEM",
-    ]),
-    deleteFromCart(index) {
-      this.DELETE_FROM_CART(index);
-    },
-    decrementQuantityCartItem(index) {
-      this.DECREMENT_QUANTITY_CARD_ITEM(index);
-    },
-    incrementQuantityCartItem(index) {
-      this.INCREMENT_QUANTITY_CARD_ITEM(index);
+      return this.cart.length === 0 ? true : false;
     },
   },
 };

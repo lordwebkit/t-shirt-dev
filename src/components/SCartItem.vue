@@ -14,21 +14,23 @@
       <div class="s-cart-item-quantity__info">
         <span
           class="s-cart-item-quantity__info-minus"
-          @click="callDecrementQuantityCartItem"
+          @click="decrementQuantityCartItem(index)"
         ></span>
         {{ cartItemData.quantity }}
         <span
           class="s-cart-item-quantity__info-plus"
-          @click="callIncrementQuantityCartItem"
+          @click="incrementQuantityCartItem(index)"
         ></span>
       </div>
     </div>
-    <button class="s-btn s-cart-item__btn" @click="callDeleteFromCart">
+    <button class="s-btn s-cart-item__btn" @click="deleteFromCart(index)">
       Delete
     </button>
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "SCartItem",
   props: {
@@ -38,29 +40,24 @@ export default {
         return {};
       },
     },
+    index: {
+      type: Number,
+      default: () => 0,
+    },
   },
-  emits: [
-    "deleteFromCart",
-    "decrementQuantityCartItem",
-    "incrementQuantityCartItem",
-  ],
   setup() {
     const getImageUrl = (name) => {
-      return new URL(`../assets/images/catalog${name}`, import.meta.url).href;
+      return new URL(`../assets/images/catalog/${name}`, import.meta.url).href;
     };
     return { getImageUrl };
   },
   mounted() {},
   methods: {
-    callDeleteFromCart() {
-      this.$emit("deleteFromCart");
-    },
-    callDecrementQuantityCartItem() {
-      this.$emit("decrementQuantityCartItem");
-    },
-    callIncrementQuantityCartItem() {
-      this.$emit("incrementQuantityCartItem");
-    },
+    ...mapActions("cart", [
+      "deleteFromCart",
+      "decrementQuantityCartItem",
+      "incrementQuantityCartItem",
+    ]),
   },
 };
 </script>
