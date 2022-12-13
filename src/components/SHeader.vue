@@ -2,7 +2,7 @@
   <div class="s-header-wrapper">
     <header class="s-header s-grid-wrapper">
       <div class="s-header__logo-wrapper">
-        <router-link :to="{ name: 'catalog' }">
+        <router-link :to="{ name: 'main' }">
           <img
             class="s-header__logo"
             :src="getImageUrl('logo.svg')"
