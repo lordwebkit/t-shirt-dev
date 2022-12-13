@@ -34,7 +34,7 @@ export default {
   emits: ["addToCart"],
   setup() {
     const getImageUrl = (name) => {
-      return new URL(`../assets/images/${name}`, import.meta.url).href;
+      return new URL(`../assets/images/catalog/${name}`, import.meta.url).href;
     };
     return { getImageUrl };
   },
