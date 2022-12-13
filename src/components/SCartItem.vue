@@ -12,12 +12,20 @@
     <div class="s-cart-item__quantity s-text_xs">
       <p>Quantity</p>
       <div class="s-cart-item-quantity__info">
-        <span class="s-cart-item-quantity__info-minus" @click="callDecrementQuantityCartItem"></span>
+        <span
+          class="s-cart-item-quantity__info-minus"
+          @click="callDecrementQuantityCartItem"
+        ></span>
         {{ cartItemData.quantity }}
-        <span class="s-cart-item-quantity__info-plus" @click="callIncrementQuantityCartItem"></span>
+        <span
+          class="s-cart-item-quantity__info-plus"
+          @click="callIncrementQuantityCartItem"
+        ></span>
       </div>
     </div>
-    <button class="s-btn s-cart-item__btn " @click="callDeleteFromCart">Delete</button>
+    <button class="s-btn s-cart-item__btn" @click="callDeleteFromCart">
+      Delete
+    </button>
   </div>
 </template>
 <script>
@@ -38,7 +46,7 @@ export default {
   ],
   setup() {
     const getImageUrl = (name) => {
-      return new URL(`../assets/images/${name}`, import.meta.url).href;
+      return new URL(`../assets/images/catalog${name}`, import.meta.url).href;
     };
     return { getImageUrl };
   },
@@ -84,10 +92,10 @@ export default {
         cursor: pointer;
       }
       &-minus {
-        background-image: url('@/assets/icons/minus.svg');
+        background-image: url("@/assets/icons/minus.svg");
       }
       &-plus {
-        background-image: url('@/assets/icons/plus.svg');
+        background-image: url("@/assets/icons/plus.svg");
       }
     }
   }
