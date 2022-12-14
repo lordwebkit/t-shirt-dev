@@ -1,8 +1,32 @@
 <template>
   <div class="s-main-wrapper">
-    <aside class="s-aside"></aside>
     <main class="s-main">
-      <s-carousel :carousel-data="publication" />
+      <div class="s-main-info-wrapper">
+        <div class="s-main__info s-main-info">
+          <div class="s-main-info__image-wrapper">
+            <img 
+              class="s-main-info__image"
+              :src="getImageUrl('robert.jpg')"
+              alt="Founder T-shirt shop" 
+            />
+          </div>
+          <div class="s-main-info__text-wrapper">
+            <span class="s-main-info-text__decore s-main-info-text__decore-top"></span>
+            <p class="s-text s-main-info__text">
+              T-shirt - is an American brand of men's <br>T-shirts. The founder and
+              ideological inspirer is Robert Polson. Our brand name was chosen
+              by Robert's 6 year old daughter as the "best in the world"
+            </p>
+            <span class="s-main-info-text__decore s-main-info-text__decore-bottom"></span>
+          </div>
+        </div>
+      </div>
+      <div class="s-main__publication">
+        <s-carousel
+          :item-data="publication"
+          :castom-settings="{ width: 1050, imgDir: 'publication' }"
+        />
+      </div>
     </main>
   </div>
 </template>
@@ -14,6 +38,12 @@ export default {
   name: "SMain",
   components: {
     SCarousel,
+  },
+  setup() {
+    const getImageUrl = (name) => {
+      return new URL(`../assets/images/founder/${name}`, import.meta.url).href;
+    };
+    return { getImageUrl };
   },
   computed: {
     ...mapGetters("publication", ["publication"]),
@@ -27,11 +57,65 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
 .s-main {
-  height: 305px;
-  &-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2.4fr 1fr;
+  &-info {
+    display: flex;
+    height: 100%;
+    width: 65%;
+    margin: 0 auto;
+    &-wrapper {
+      height: calc(100vh - 65px);
+      background: #fff url("@/assets/images/founder/bg.jpg") no-repeat center right;
+    }
+    &__image {
+      height: 600px;
+      padding: 10px;
+      background-color: #fff;
+      &-wrapper {
+        flex: 3;
+        display: flex;
+        align-items: center;
+      }
+    }
+    &__text {
+      width: 63%;
+      background-color: rgba(105, 139, 106, 0.3);
+      color: rgb(24, 24, 24);
+      padding: 15px;
+      font-size: 26px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
+      font-family: 'Raleway', sans-serif;
+      &-wrapper {
+        flex: 6;
+        display: flex;
+        
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+    &-text {
+      &__decore {
+        width: 455px;
+        height: 2px;
+        display: block;
+        background-color: rgb(24, 24, 24);
+        margin-left: 40px;
+        // background-color: #fff;
+        &-top {
+          margin-bottom: 40px;
+        }
+        &-bottom {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  &__publication {
+    width: 100%;
+    height: 305px;
   }
 }
 .s-aside {
