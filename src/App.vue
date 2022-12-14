@@ -1,16 +1,16 @@
 <script>
-import SMainWrapper from "./components/SMainWrapper.vue";
+import SAppWrapper from "./components/SAppWrapper.vue";
 
 export default {
   name: "App",
   components: {
-    SMainWrapper,
+    SAppWrapper,
   },
 };
 </script>
 
 <template>
-  <s-main-wrapper />
+  <s-app-wrapper />
 </template>
 
 <style>

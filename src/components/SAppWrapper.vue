@@ -1,5 +1,5 @@
 <template>
-  <div class="s-main-wrapper">
+  <div class="s-app-wrapper">
     <s-header />
     <router-view />
   </div>
@@ -8,7 +8,7 @@
 <script>
 import SHeader from "./SHeader.vue";
 export default {
-  name: "SMainWrapper",
+  name: "SAppWrapper",
   components: {
     SHeader,
   },
