@@ -1,4 +1,5 @@
 import axios from "axios";
+import mapDataForCarousel from "../function/mapDataForCarousel";
 
 export default {
   namespaced: true,
@@ -7,19 +8,7 @@ export default {
   },
   mutations: {
     SET_PUBLICATION_TO_STATE: (state, publication) => {
-      let extendedPublication = [];
-      extendedPublication.push(
-        Object.assign({}, publication[publication.length - 1])
-      );
-      extendedPublication = extendedPublication.concat(publication);
-      extendedPublication.push(Object.assign({}, publication[0]));
-
-      extendedPublication.forEach((ext, index) => {
-        ext.article = `P${index}`;
-        ext.translate = -1;
-      });
-
-      state.publication = extendedPublication;
+      state.publication = mapDataForCarousel(publication, "P");
     },
   },
   actions: {
