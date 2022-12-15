@@ -27,7 +27,7 @@
 </template>
 <script>
 import SCartItem from "./SCartItem.vue";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "SCart",
