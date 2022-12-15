@@ -3,12 +3,12 @@
     class="s-carousel-item"
     :class="{ 's-carousel-item_animated': isAnimated }"
     :style="{
-      transform: `translateX(calc(${carouselItemData.translate * 100}%))`,
+      transform: `translateX(calc(${itemData.translate * 100}%))`,
     }"
   >
     <img
       class="s-carousel-item__image"
-      :src="getImageUrl(carouselItemData.image)"
+      :src="getImageUrl(itemData.image, imgDir)"
       alt="Product photo"
     />
   </div>
@@ -17,7 +17,7 @@
 export default {
   name: "SCarouselItem",
   props: {
-    carouselItemData: {
+    itemData: {
       type: Object,
       default: () => {},
     },
@@ -25,10 +25,14 @@ export default {
       type: Boolean,
       default: () => {},
     },
+    imgDir: {
+      type: String,
+      default: () => "",
+    },
   },
   setup() {
-    const getImageUrl = (name) => {
-      return new URL(`../assets/images/publication/${name}`, import.meta.url)
+    const getImageUrl = (name, imgDir) => {
+      return new URL(`../assets/images/${imgDir}/${name}`, import.meta.url)
         .href;
     };
     return { getImageUrl };
@@ -37,7 +41,7 @@ export default {
 </script>
 <style lang="scss">
 .s-carousel-item {
-  width: 1050px;
+  width: 100%;
   height: 100%;
   &__image {
     width: 100%;

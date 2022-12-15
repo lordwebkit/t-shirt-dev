@@ -1,11 +1,18 @@
 <template>
-  <div class="s-carousel-wrapper">
-    <div class="s-carousel">
+  <div
+    class="s-carousel-wrapper"
+    :style="{ width: `${castomSettings.width}px` }"
+  >
+    <div
+      class="s-carousel"
+      :style="{ width: `${castomSettings.width * itemData.length}px` }"
+    >
       <s-carousel-item
-        v-for="item in carouselData"
+        v-for="item in itemData"
         :key="item"
-        :carousel-item-data="item"
+        :item-data="item"
         :is-animated="isAnimated"
+        :img-dir="castomSettings.imgDir"
       />
     </div>
     <div class="s-carousel-nav">
@@ -29,15 +36,21 @@ export default {
     SCarouselItem,
   },
   props: {
-    carouselData: {
+    itemData: {
       type: Object,
       default() {
         return {};
       },
     },
-    interval: {
-      type: Number,
-      default: 0,
+    castomSettings: {
+      type: Object,
+      default() {
+        return {
+          width: 1000,
+          imgDir: "",
+          interval: 0,
+        };
+      },
     },
   },
   data() {
@@ -49,14 +62,14 @@ export default {
   },
   methods: {
     prevSlide() {
-      this.carouselData.forEach((ext) => {
+      this.itemData.forEach((ext) => {
         ext.translate++;
       });
       this.currentSlideIndex--;
       if (this.currentSlideIndex === 0) this.prevMagic();
     },
     nextSlide() {
-      this.carouselData.forEach((ext) => {
+      this.itemData.forEach((ext) => {
         ext.translate--;
       });
       this.currentSlideIndex++;
@@ -66,7 +79,7 @@ export default {
       const vm = this;
       setTimeout(() => {
         vm.isAnimated = false;
-        vm.carouselData.forEach((ext) => {
+        vm.itemData.forEach((ext) => {
           ext.translate = ext.translate - 3;
         });
         vm.currentSlideIndex = vm.currentSlideIndex + 3;
@@ -79,7 +92,7 @@ export default {
       const vm = this;
       setTimeout(() => {
         vm.isAnimated = false;
-        vm.carouselData.forEach((ext) => {
+        vm.itemData.forEach((ext) => {
           ext.translate = ext.translate + 3;
         });
         vm.currentSlideIndex = vm.currentSlideIndex - 3;
@@ -94,17 +107,15 @@ export default {
 <style lang="scss">
 .s-carousel {
   display: flex;
-  width: 6000px;
   height: 100%;
   &-wrapper {
-    width: 1050px;
     height: 100%;
     overflow: hidden;
 
     &:hover {
       .s-carousel-nav__button {
         &::after {
-          opacity: 1;
+          opacity: 0.7;
         }
       }
     }
@@ -113,12 +124,12 @@ export default {
     transform: translate(0, -100%);
     display: flex;
     justify-content: space-between;
+    height: 100%;
 
     &__button {
       width: 300px;
       display: flex;
       align-items: center;
-      height: 305px;
       padding: 20px;
       border: 0;
       background-color: inherit;
