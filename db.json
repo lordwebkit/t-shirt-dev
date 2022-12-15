@@ -66,19 +66,41 @@
   ],
   "publication": [
     {
-      "image": "1.png",
+      "image": "1.jpg",
       "name": "Publication model 1",
       "article": "P1"
     },
     {
-      "image": "2.png",
+      "image": "2.jpg",
       "name": "Publication model 2",
       "article": "P2"
     },
     {
-      "image": "3.png",
+      "image": "3.jpg",
       "name": "Publication model 3",
       "article": "P3"
+    }
+  ],
+  "collection": [
+    {
+      "image": "1.jpg",
+      "name": "Black base model",
+      "article": "C1"
+    },
+    {
+      "image": "2.jpg",
+      "name": "Gray base model",
+      "article": "C2"
+    },
+    {
+      "image": "3.jpg",
+      "name": "White base model",
+      "article": "C3"
+    },
+    {
+      "image": "4.jpg",
+      "name": "Beige base model",
+      "article": "C3"
     }
   ]
 }
