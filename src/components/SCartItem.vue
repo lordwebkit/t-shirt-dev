@@ -64,7 +64,7 @@ export default {
 <style lang="scss" scoped>
 .s-cart-item {
   margin-top: 12px;
-  padding: $padding * 2;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 8px 0 #e0e0e0;

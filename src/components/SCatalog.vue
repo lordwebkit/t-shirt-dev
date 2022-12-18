@@ -51,7 +51,7 @@ export default {
     align-items: center;
   }
   &__link-cart {
-    padding: $padding * 2;
+    padding: 10px;
     border: solid 1px #aeaeae;
   }
   &__title {

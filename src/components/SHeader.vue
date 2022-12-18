@@ -1,6 +1,6 @@
 <template>
   <div class="s-header-wrapper">
-    <header class="s-header s-grid-wrapper">
+    <header class="s-header">
       <div class="s-header__logo-wrapper">
         <router-link :to="{ name: 'main' }">
           <img
@@ -42,12 +42,13 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-header {
+  @include grid();
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   &-wrapper {
-    background-color: $theme-color-ws;
+    background-color: $color-ws;
   }
   &__logo {
     width: 200px;

@@ -47,11 +47,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-catalog-item {
-  padding: $padding;
   flex-basis: 25%;
   box-shadow: 0 0 8px 0 #e0e0e0;
-  padding: $padding * 2;
-  margin-bottom: $margin * 2;
+  padding: 10px;
+  margin-bottom: 10px;
   text-align: center;
   display: flex;
   height: 410px;
