@@ -25,7 +25,7 @@
           </p>
           <span class="s-questionnaire__promo-lable">
             Your promo code:
-            <input type="text" class="s-questionnaire__promo-input" readonly/>
+            <input type="text" class="s-questionnaire__promo-input" readonly />
           </span>
         </div>
       </div>

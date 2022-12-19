@@ -1,11 +1,10 @@
 <template>
   <div class="s-popular">
-    <h2 class="s-title s-popular__title">Popular</h2>
+    <h2 class="s-popular__title">Popular</h2>
     <div class="s-popular__catalog">
       <s-popular-item
         v-for="popularItem in popular"
         :key="popularItem"
-        class="s-popular__item"
         :item-data="popularItem"
       />
     </div>
