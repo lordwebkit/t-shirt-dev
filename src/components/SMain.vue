@@ -10,6 +10,7 @@
         :castom-settings="{ width: 1050, imgDir: 'publication' }"
       />
       <s-questionnaire />
+      <s-article />
     </main>
   </div>
 </template>
@@ -30,6 +31,7 @@ export default {
     SPopular,
     SCarousel,
     SQuestionnaire,
+    SArticle,
   },
   setup() {
     const getImageUrl = (name, imgDir) => {
