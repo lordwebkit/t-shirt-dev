@@ -48,7 +48,6 @@ export default {
   &__catalog {
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
   }
 }
 </style>

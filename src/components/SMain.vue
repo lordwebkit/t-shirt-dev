@@ -55,7 +55,7 @@ export default {
 .s-main {
   &__publication {
     @include grid();
-    margin-top: 67px;
+    margin-top: 15px;
     height: 305px;
   }
 }

@@ -29,12 +29,12 @@ export default {
 </script>
 <style lang="scss">
 .s-popular-item {
-  &:nth-child(3),
-  &:nth-child(4) {
-    margin-top: 60px;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0;
   }
   &__image {
-    height: 100%;
+    width: 100%;
     display: block;
   }
 }
