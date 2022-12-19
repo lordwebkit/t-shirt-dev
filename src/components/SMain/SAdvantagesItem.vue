@@ -1,5 +1,8 @@
 <template>
-  <div class="s-advantages-item" :class="`s-advantages-item_${itemData.classModification}`">
+  <div
+    class="s-advantages-item"
+    :class="`s-advantages-item_${itemData.classModification}`"
+  >
     <div class="s-advantages-item__info">
       <strong class="s-advantages-item__title">{{ itemData.title }}</strong>
       <p class="s-advantages-item__text">{{ itemData.text }}</p>
@@ -40,25 +43,24 @@ export default {
   }
   &_handmade {
     &::before {
-        background: url("@/assets/icons/sewing-machine.svg");
+      background: url("@/assets/icons/sewing-machine.svg");
     }
   }
   &_pattern {
     &::before {
-        background: url("@/assets/icons/pattern.svg");
+      background: url("@/assets/icons/pattern.svg");
     }
   }
   &_material {
     &::before {
-        background: url("@/assets/icons/material.svg");
-        padding: 5px;
-        height: 40px;
-        width: 40px;
+      background: url("@/assets/icons/material.svg");
+      height: 40px;
+      width: 40px;
     }
   }
   &_shipping {
     &::before {
-        background: url("@/assets/icons/shipping.svg");
+      background: url("@/assets/icons/shipping.svg");
     }
   }
 }

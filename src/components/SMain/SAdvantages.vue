@@ -25,22 +25,22 @@ export default {
         {
           title: "Handmade",
           text: "All works presented are handmade",
-          classModification: "handmade"
+          classModification: "handmade",
         },
         {
           title: "Personal pattern",
           text: "All patterns were personally designed",
-          classModification: "pattern"
+          classModification: "pattern",
         },
         {
           title: "Natural materials",
           text: "All works are made from natural materials",
-          classModification: "material"
+          classModification: "material",
         },
         {
           title: "Fast shipping",
           text: " We cooperate with many companies",
-          classModification: "shipping"
+          classModification: "shipping",
         },
       ],
     };
