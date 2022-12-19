@@ -1,5 +1,5 @@
 <template>
-  <div class="s-grid-wrapper s-popular">
+  <div class="s-popular">
     <h2 class="s-title s-popular__title">Popular</h2>
     <div class="s-popular__catalog">
       <s-popular-item
@@ -37,7 +37,9 @@ export default {
 <style lang="scss" scoped>
 .s-popular {
   padding-top: 40px;
+  @include grid();
   &__title {
+    @include title();
     text-align: center;
     font-size: 48px;
   }

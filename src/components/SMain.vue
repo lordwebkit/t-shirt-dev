@@ -5,7 +5,7 @@
       <s-advantages />
       <s-popular />
       <s-carousel
-        class="s-grid-wrapper s-main__publication"
+        class="s-main__publication"
         :item-data="publication"
         :castom-settings="{ width: 1050, imgDir: 'publication' }"
       />
@@ -52,6 +52,7 @@ export default {
 <style lang="scss" scoped>
 .s-main {
   &__publication {
+    @include grid();
     margin-top: 67px;
     height: 305px;
   }
