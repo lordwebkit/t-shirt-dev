@@ -30,6 +30,12 @@ export default {
 <style lang="scss">
 .s-popular-item {
   margin-right: 15px;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+    border: 1px solid $c-dark-green;
+    box-shadow: black 0 0 2px;
+  }
   &:last-child {
     margin-right: 0;
   }

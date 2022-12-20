@@ -1,25 +1,16 @@
 <template>
-  <div class="s-main-wrapper">
-    <main class="s-main">
-      <s-info />
-      <s-advantages />
-      <s-popular />
-      <s-carousel
-        class="s-main__publication"
-        :item-data="publication"
-        :castom-settings="{ width: 1050, imgDir: 'publication' }"
-      />
-      <s-questionnaire />
-      <s-article />
-    </main>
-  </div>
+  <main class="s-main">
+    <s-info />
+    <s-advantages />
+    <s-popular />
+    <s-questionnaire />
+    <s-article />
+  </main>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
 import SInfo from "./SMain/SInfo.vue";
 import SAdvantages from "./SMain/SAdvantages.vue";
 import SPopular from "./SMain/SPopular.vue";
-import SCarousel from "./SCarousel.vue";
 import SQuestionnaire from "./SMain/SQuestionnaire.vue";
 import SArticle from "./SMain/SArticle.vue";
 
@@ -29,7 +20,6 @@ export default {
     SInfo,
     SAdvantages,
     SPopular,
-    SCarousel,
     SQuestionnaire,
     SArticle,
   },
@@ -40,23 +30,6 @@ export default {
     };
     return { getImageUrl };
   },
-  computed: {
-    ...mapGetters("publication", ["publication"]),
-  },
-  mounted() {
-    this.getPublicationFromApi();
-  },
-  methods: {
-    ...mapActions("publication", ["getPublicationFromApi"]),
-  },
 };
 </script>
-<style lang="scss" scoped>
-.s-main {
-  &__publication {
-    @include grid();
-    margin-top: 15px;
-    height: 305px;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

@@ -8,15 +8,22 @@
         :item-data="popularItem"
       />
     </div>
+    <s-carousel
+      class="s-popular__carousel"
+      :item-data="publication"
+      :castom-settings="{ width: 980, imgDir: 'publication', interval: 5000 }"
+    />
   </div>
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
+import SCarousel from "../SCarousel.vue";
 import SPopularItem from "./SPopularItem.vue";
 
 export default {
   name: "SCollection",
   components: {
+    SCarousel,
     SPopularItem,
   },
   data() {
@@ -24,12 +31,15 @@ export default {
   },
   computed: {
     ...mapGetters("popular", ["popular"]),
+    ...mapGetters("publication", ["publication"]),
   },
   mounted() {
     this.getPopularFromApi();
+    this.getPublicationFromApi();
   },
   methods: {
     ...mapActions("popular", ["getPopularFromApi"]),
+    ...mapActions("publication", ["getPublicationFromApi"]),
   },
 };
 </script>
@@ -41,9 +51,11 @@ export default {
     @include title();
     text-align: center;
     font-size: 48px;
+    margin-bottom: 50px;
   }
-  &__catalog {
-    margin-top: 50px;
+  &__carousel {
+    height: 305px;
+    margin-top: 14px;
   }
   &__catalog {
     display: flex;
