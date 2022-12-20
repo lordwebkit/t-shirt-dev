@@ -55,51 +55,107 @@ export default {
   },
   data() {
     return {
-      carouselDataExtended: [],
-      isAnimated: true,
       currentSlideIndex: 1,
+      isAnimated: true,
+      isReady: true,
+      intervalId: null,
+      timeoutId: null,
     };
+  },
+  mounted() {
+    if (this.castomSettings.interval) {
+      this.intervalId = setInterval(() => {
+        this.nextAutoSlide();
+      }, this.castomSettings.interval);
+    }
   },
   methods: {
     prevSlide() {
-      this.itemData.forEach((ext) => {
-        ext.translate++;
-      });
-      this.currentSlideIndex--;
-      if (this.currentSlideIndex === 0) this.prevMagic();
+      clearInterval(this.intervalId);
+      clearTimeout(this.timeoutId);
+      if (this.isReady) {
+        this.itemData.forEach((ext) => {
+          ext.translate++;
+        });
+        this.currentSlideIndex--;
+        if (this.currentSlideIndex === 0) {
+          this.prevMagic();
+        } else {
+          setTimeout(() => {
+            this.isReady = true;
+            this.timeoutId = setTimeout(() => {
+              this.intervalId = setInterval(() => {
+                this.nextAutoSlide();
+              }, this.castomSettings.interval);
+            }, 3000)
+          }, 1000);
+        }
+      }
     },
     nextSlide() {
-      this.itemData.forEach((ext) => {
-        ext.translate--;
-      });
-      this.currentSlideIndex++;
-      if (this.currentSlideIndex === 4) this.nextMagic();
+      clearInterval(this.intervalId);
+      clearTimeout(this.timeoutId);
+      if (this.isReady) {
+        this.itemData.forEach((ext) => {
+          ext.translate--;
+        });
+        this.currentSlideIndex++;
+        this.isReady = false;
+        if (this.currentSlideIndex === 4) {
+          this.nextMagic();
+        } else {
+          setTimeout(() => {
+            this.isReady = true;
+            this.timeoutId = setTimeout(() => {
+              this.intervalId = setInterval(() => {
+                this.nextAutoSlide();
+              }, this.castomSettings.interval);
+            }, 3000)
+          }, 1000);
+        }
+      }
+    },
+    nextAutoSlide() {
+      if (this.isReady) {
+        this.itemData.forEach((ext) => {
+          ext.translate--;
+        });
+        this.currentSlideIndex++;
+        this.isReady = false;
+        if (this.currentSlideIndex === 4) {
+          this.nextMagic();
+        } else {
+          setTimeout(() => {
+            this.isReady = true;
+          }, 1000);
+        }
+      }
     },
     prevMagic() {
-      const vm = this;
       setTimeout(() => {
-        vm.isAnimated = false;
-        vm.itemData.forEach((ext) => {
-          ext.translate = ext.translate - 3;
+        this.isAnimated = false;
+        this.itemData.forEach((ext) => {
+          ext.translate -= 3;
         });
-        vm.currentSlideIndex = vm.currentSlideIndex + 3;
+        this.currentSlideIndex += 3;
       }, 1000);
       setTimeout(() => {
         this.isAnimated = true;
-      }, 1020);
+        this.isReady = true;
+      }, 1100);
     },
     nextMagic() {
-      const vm = this;
       setTimeout(() => {
-        vm.isAnimated = false;
-        vm.itemData.forEach((ext) => {
-          ext.translate = ext.translate + 3;
+        this.isAnimated = false;
+        this.itemData.forEach((ext) => {
+          ext.translate += 3;
         });
-        vm.currentSlideIndex = vm.currentSlideIndex - 3;
+        this.currentSlideIndex -= 3;
       }, 1000);
       setTimeout(() => {
         this.isAnimated = true;
-      }, 1020);
+        this.isReady = true;
+      }, 1100);
     },
   },
 };
@@ -133,11 +189,9 @@ export default {
       padding: 20px;
       border: 0;
       background-color: inherit;
-
       &:hover {
         cursor: pointer;
       }
-
       &::after {
         content: "";
         transition: all 2s ease;
