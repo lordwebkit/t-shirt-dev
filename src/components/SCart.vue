@@ -1,8 +1,8 @@
 <template>
   <div class="s-cart-wrapper">
-    <section class="s-grid-wrapper">
+    <section class="s-cart">
       <div class="s-cart__title-wrapper">
-        <h2 class="s-title s-cart__title">
+        <h2 class="s-cart__title">
           Cart
           <span :class="cartEmpty ? 's-cart_inline-block' : 's-cart_none'"
             >is empty please add any thing
@@ -49,10 +49,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-cart {
+  @include grid();
   &_inline-block {
     display: inline-block;
   }
   &__title {
+    @include title(32px);
     &-wrapper {
       margin: 20px 0 25px 0;
     }

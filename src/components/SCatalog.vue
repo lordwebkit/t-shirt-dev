@@ -1,6 +1,6 @@
 <template>
   <div class="s-catalog-wrapper">
-    <section class="s-catalog s-grid-wrapper">
+    <section class="s-catalog">
       <div class="s-catalog__title-wrapper">
         <h2 class="s-title s-catalog__title">
           Catalog differen T-shirt for a base look
@@ -44,6 +44,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .s-catalog {
+  @include grid();
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -55,6 +56,7 @@ export default {
     border: solid 1px #aeaeae;
   }
   &__title {
+    @include title(32px);
     &-wrapper {
       margin: 20px 0 25px 0;
     }
