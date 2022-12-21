@@ -97,5 +97,11 @@
       "name": "White base model",
       "article": "C3"
     }
+  ],
+  "questionnaire": [
+    {
+      "color": "black",
+      "email": "admin@mail.com"
+    }
   ]
 }

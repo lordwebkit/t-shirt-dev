@@ -3,20 +3,28 @@
     <div class="s-questionnaire">
       <h2 class="s-title s-questionnaire__title">Color Question</h2>
       <div class="s-questionnaire__content">
-        <form class="s-questionnaire__form" action="submit">
+        <form
+          class="s-questionnaire__form"
+          @submit.prevent="alertSubmit(color, email)"
+        >
+          <div class="s-questionnaire__color-wrapper s-questionnaire-color">
+            <p class="s-questionnaire-color__title">Select your favorite color:</p>
+            <input
+              v-model="color"
+              class="s-questionnaire-color__palette"
+              type="color"
+              name="color"
+              placeholder="Your favorite color is .."
+            />
+          </div>
           <input
-            class="s-questionnaire__input"
-            type="text"
-            name="fname"
-            placeholder="Your favorite color is .."
-          />
-          <input
-            class="s-questionnaire__input"
+            v-model="email"
+            class="s-questionnaire__email"
             type="email"
-            name="lname"
+            name="email"
             placeholder="Email"
           />
-          <input class="s-questionnaire__button" type="button" value="Submit" />
+          <input class="s-questionnaire__button" type="submit" value="Submit" />
         </form>
         <div class="s-questionnaire__text-wrapper">
           <p class="s-questionnaire__text">
@@ -25,7 +33,12 @@
           </p>
           <span class="s-questionnaire__promo-lable">
             Your promo code:
-            <input type="text" class="s-questionnaire__promo-input" readonly />
+            <input
+              v-model="promo"
+              type="text"
+              class="s-questionnaire__promo-input"
+              readonly
+            />
           </span>
         </div>
       </div>
@@ -35,6 +48,21 @@
 <script>
 export default {
   name: "SQuestionnaire",
+  data() {
+    return {
+      email: "",
+      color: "",
+      promo: "",
+    };
+  },
+  methods: {
+    alertSubmit(color, email) {
+      alert(
+        `Your favorite color is ${color}. We add your ${email} in our contacts)`
+      );
+      this.promo = "E5A99Q";
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -61,7 +89,22 @@ export default {
     justify-content: space-between;
     flex: 1;
   }
-  &__input {
+  &-color {
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    &__title {
+      @include text(20px);
+      margin-right: 10px;
+      color: $c-dark-green;
+    }
+    &__palette {
+      cursor: pointer;
+      height: 45px;
+      width: 60px;
+    }
+  }
+  &__email {
     @include text(18px);
     padding: 10px 5px;
   }
