@@ -87,7 +87,7 @@ export default {
               this.intervalId = setInterval(() => {
                 this.nextAutoSlide();
               }, this.castomSettings.interval);
-            }, 3000)
+            }, 3000);
           }, 1000);
         }
       }
@@ -110,7 +110,7 @@ export default {
               this.intervalId = setInterval(() => {
                 this.nextAutoSlide();
               }, this.castomSettings.interval);
-            }, 3000)
+            }, 3000);
           }, 1000);
         }
       }
