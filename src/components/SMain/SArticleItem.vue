@@ -2,6 +2,7 @@
   <div
     class="s-article-item"
     :class="`s-article-item_${itemData.classModification}`"
+    @click="showPopup(itemData)"
   >
     <h3 class="s-article-item__title">{{ itemData.title }}</h3>
   </div>
@@ -13,6 +14,12 @@ export default {
     itemData: {
       type: Object,
       default: () => {},
+    },
+  },
+  emits: ["showPopup"],
+  methods: {
+    showPopup(itemData) {
+      this.$emit("showPopup", itemData);
     },
   },
 };
@@ -29,6 +36,9 @@ export default {
   transition: background-color, box-shadow 0.2s ease;
   &:hover {
     cursor: pointer;
+    border: 1px solid $c-dark-green;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 15px, $c-dark-green 0px 0px 10px;
+    height: 398px;
   }
   &_first {
     background-image: url("@/assets/images/catalog/2.png");

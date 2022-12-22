@@ -8,7 +8,9 @@
           @submit.prevent="alertSubmit(color, email)"
         >
           <div class="s-questionnaire__color-wrapper s-questionnaire-color">
-            <p class="s-questionnaire-color__title">Select your favorite color:</p>
+            <p class="s-questionnaire-color__title">
+              Select your favorite color:
+            </p>
             <input
               v-model="color"
               class="s-questionnaire-color__palette"
