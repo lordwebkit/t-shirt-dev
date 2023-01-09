@@ -75,7 +75,7 @@ export default {
             "delicate mode, up to 40 degrees, not higher than 600 rpm,",
             "do not use a machine dryer, dry only on a hanger,",
             "without direct sunlight on the fabric.",
-            ""
+            "",
           ],
           img: "2.jpg",
         },
@@ -88,7 +88,7 @@ export default {
             "Then rinse with water and machine wash.",
             "For old stains, the treatment time should be doubled.",
           ],
-          img: "3.png"
+          img: "3.png",
         },
       ],
       isVisible: false,
