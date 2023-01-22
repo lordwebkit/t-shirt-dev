@@ -1,10 +1,10 @@
 <template>
-  <div class="s-advantages-wrapper">
-    <div class="s-advantages">
+  <div class="s-advantages s-main__advantages">
+    <div class="s-advantages__inner">
       <h2 class="s-title s-advantages__title">Our advantages</h2>
       <div class="s-advantages__items">
         <s-advantages-item
-          v-for="itemData in advantagesItemData"
+          v-for="itemData in advantages"
           :key="itemData"
           :item-data="itemData"
         />
@@ -14,46 +14,23 @@
 </template>
 <script>
 import SAdvantagesItem from "./SAdvantagesItem.vue";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
     SAdvantagesItem,
   },
-  data() {
-    return {
-      advantagesItemData: [
-        {
-          title: "Handmade",
-          text: "All works presented are handmade",
-          classModification: "handmade",
-        },
-        {
-          title: "Personal pattern",
-          text: "All patterns were personally designed",
-          classModification: "pattern",
-        },
-        {
-          title: "Natural materials",
-          text: "All works are made from natural materials",
-          classModification: "material",
-        },
-        {
-          title: "Fast shipping",
-          text: " We cooperate with many companies",
-          classModification: "shipping",
-        },
-      ],
-    };
+  computed: {
+    ...mapGetters("advantages", ["advantages"]),
   },
 };
 </script>
 <style lang="scss" scoped>
 .s-advantages {
-  @include grid();
-  &-wrapper {
+  background-color: #f8f8f8;
+  &__inner {
+    @include grid();
     padding: 40px 0;
-    margin-top: 50px;
-    background-color: #f8f8f8;
   }
   &__title {
     @include title(32px);
