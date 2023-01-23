@@ -22,10 +22,15 @@
           <input
             v-model="email"
             class="s-questionnaire__email"
-            type="email"
             name="email"
             placeholder="Email"
+            @input="notice = false"
           />
+          <transition name="s-notice">
+            <span v-show="notice" class="s-questionnaire__notice">
+              Your email don't correct !
+            </span>
+          </transition>
           <input class="s-questionnaire__button" type="submit" value="Submit" />
         </form>
         <div class="s-questionnaire__text-wrapper">
@@ -53,17 +58,30 @@ export default {
   data() {
     return {
       email: "",
-      color: "",
+      color: "#000000",
       promo: "",
+      notice: false,
     };
   },
   methods: {
     alertSubmit(color, email) {
-      alert(
-        `Your favorite color is ${color}. We add your ${email} in our contacts)`
-      );
-      this.promo = "E5A99Q";
+      if (this.validateEmail(email)) {
+        alert(
+          `Your favorite color is ${color}. We add your ${email} in our contacts)`
+        );
+        this.promo = "E5A99Q";
+      } 
     },
+    validateEmail(email) {
+      const EMAIL_REGEXP =
+        /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+      if (EMAIL_REGEXP.test(email)) {
+        return true;
+      } else {
+        this.notice = true;
+        return false;
+      }
+    }
   },
 };
 </script>
@@ -90,6 +108,7 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
+    position: relative;
   }
   &-color {
     display: flex;
@@ -109,6 +128,37 @@ export default {
   &__email {
     @include text(18px);
     padding: 10px 5px;
+  }
+  &__notice {
+    display: block;
+    width: 100%;
+    @include text(18px);
+    border: 1px solid #000;
+    background-color: rgb(181, 93, 93);
+    color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding: 7px;
+    box-sizing: border-box;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 35px;
+      left: 17px;
+      border: 10px solid transparent;
+      border-top: 12px solid rgb(181, 93, 93);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 36px;
+      left: 17px;
+      border: 10px solid transparent;
+      border-top: 12px solid #000;
+    }
   }
   &__button {
     padding: 10px 5px;
@@ -137,5 +187,13 @@ export default {
       padding: 5px;
     }
   }
+}
+.s-notice-enter-active,
+.s-notice-leave-active {
+  transition: opacity 0.5s ease;
+}
+.s-notice-enter-from,
+.s-notice-leave-to {
+  opacity: 0;
 }
 </style>
