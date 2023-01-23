@@ -50,25 +50,57 @@
         </div>
       </div>
     </div>
+    <s-popup
+      :is-visible="isVisible"
+      :popup-content="popupContent"
+      @close-popup="closePopup"
+    >
+      <template #header>
+        <h2 class="s-popup__title">Thanks for the answer</h2>
+      </template>
+      <template #content>
+        <div class="s-popup__content">
+          <span class="s-questionnaire__promo-lable">
+            Your promo code:
+            <input
+              v-model="promo"
+              type="text"
+              class="s-questionnaire__promo-input"
+              readonly
+            />
+          </span>
+        </div>
+      </template>
+      <template #footer>
+        <div class="s-popup__footer">
+          <p>Your email is {{ email }}</p>
+          <p>Your favorite color is {{ color }}</p>
+        </div>
+      </template>
+    </s-popup>
   </div>
 </template>
 <script>
+import SPopup from "../SPopup.vue"
 export default {
   name: "SQuestionnaire",
+  components: {SPopup},
   data() {
     return {
       email: "",
       color: "#000000",
       promo: "",
       notice: false,
+      isVisible: false,
+      popupContent: {
+
+      }
     };
   },
   methods: {
     alertSubmit(color, email) {
       if (this.validateEmail(email)) {
-        alert(
-          `Your favorite color is ${color}. We add your ${email} in our contacts)`
-        );
+        this.isVisible = true;
         this.promo = "E5A99Q";
       } 
     },
@@ -81,6 +113,9 @@ export default {
         this.notice = true;
         return false;
       }
+    },
+    closePopup() {
+      this.isVisible = false
     }
   },
 };
@@ -195,5 +230,27 @@ export default {
 .s-notice-enter-from,
 .s-notice-leave-to {
   opacity: 0;
+}
+.s-popup {
+  padding: 10px;
+  &__title {
+    @include title(28px);
+    text-align: center;
+    padding-top: 20px;
+  }
+  &__content {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  &__footer {
+    @include text(18px);
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
