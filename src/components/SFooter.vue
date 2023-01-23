@@ -138,7 +138,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .s-footer {
   @include grid();
   padding: 50px 0;
@@ -198,7 +198,7 @@ export default {
   }
   &__content {
     display: flex;
-    padding: 10px;
+    padding: 10px 10px 40px 10px;
     align-items: center;
     margin-top: 20px;
   }

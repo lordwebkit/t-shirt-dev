@@ -41,7 +41,7 @@ export default {
 .s-popup {
   @include grid();
   width: 100%;
-  height: 80%;
+  min-height: 200px;
   background-color: $color-ws;
   position: relative;
   &-enter-active,
