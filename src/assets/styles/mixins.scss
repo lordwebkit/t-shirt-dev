@@ -3,6 +3,10 @@
 @mixin grid($mw: 980px) {
   max-width: $mw;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 @mixin title($fs: 46px) {
   font-family: "Inter", sans-serif;

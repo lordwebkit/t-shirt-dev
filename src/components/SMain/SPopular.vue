@@ -9,9 +9,15 @@
       />
     </div>
     <s-carousel
+      id="s-popular__carousel"
       class="s-popular__carousel"
       :item-data="publication"
-      :castom-settings="{ width: 980, imgDir: 'publication', interval: 5000 }"
+      :castom-settings="{
+        width: carouselSize,
+        height: carouselHeight,
+        imgDir: 'publication',
+        interval: 5000,
+      }"
     />
   </div>
 </template>
@@ -27,7 +33,11 @@ export default {
     SPopularItem,
   },
   data() {
-    return {};
+    const pageSize = document.documentElement.scrollWidth;
+    return {
+      carouselSize: pageSize > 1010 ? 980 : pageSize - 30,
+      carouselHeight: pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50,
+    };
   },
   computed: {
     ...mapGetters("popular", ["popular"]),
@@ -36,10 +46,21 @@ export default {
   mounted() {
     this.getPopularFromApi();
     this.getPublicationFromApi();
+
+    window.addEventListener("resize", this.carouselResize);
+  },
+  destroy() {
+    window.removeEventListener("resize", this.carouselResize);
   },
   methods: {
     ...mapActions("popular", ["getPopularFromApi"]),
     ...mapActions("publication", ["getPublicationFromApi"]),
+    carouselResize() {
+      const pageSize = document.documentElement.scrollWidth;
+      this.carouselSize = pageSize > 1010 ? 980 : pageSize - 30;
+      this.carouselHeight =
+        pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50;
+    },
   },
 };
 </script>

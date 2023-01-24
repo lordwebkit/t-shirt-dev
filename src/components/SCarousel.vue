@@ -1,7 +1,10 @@
 <template>
   <div
     class="s-carousel-wrapper"
-    :style="{ width: `${castomSettings.width}px` }"
+    :style="{
+      width: `${castomSettings.width}px`,
+      height: `${castomSettings.height ? castomSettings.height : 305}px`,
+    }"
   >
     <div
       class="s-carousel"
@@ -189,6 +192,10 @@ export default {
       padding: 20px;
       border: 0;
       background-color: inherit;
+      @media (max-width: 550px) {
+        width: auto;
+        max-width: 100px;
+      }
       &:hover {
         cursor: pointer;
       }

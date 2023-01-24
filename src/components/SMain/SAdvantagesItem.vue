@@ -25,6 +25,7 @@ export default {
   flex: 1;
   display: flex;
   align-items: center;
+  min-width: 232px;
   &::before {
     content: "";
     height: 50px;
@@ -37,6 +38,9 @@ export default {
   &__info {
     width: 70%;
     margin: 0 auto;
+    @media (max-width: 960px) {
+      width: 77%;
+    }
   }
   &__text {
     @include text(16px);

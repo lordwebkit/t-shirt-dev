@@ -81,10 +81,10 @@
   </div>
 </template>
 <script>
-import SPopup from "../SPopup.vue"
+import SPopup from "../SPopup.vue";
 export default {
   name: "SQuestionnaire",
-  components: {SPopup},
+  components: { SPopup },
   data() {
     return {
       email: "",
@@ -92,9 +92,7 @@ export default {
       promo: "",
       notice: false,
       isVisible: false,
-      popupContent: {
-
-      }
+      popupContent: {},
     };
   },
   methods: {
@@ -102,7 +100,7 @@ export default {
       if (this.validateEmail(email)) {
         this.isVisible = true;
         this.promo = "E5A99Q";
-      } 
+      }
     },
     validateEmail(email) {
       const EMAIL_REGEXP =
@@ -115,8 +113,8 @@ export default {
       }
     },
     closePopup() {
-      this.isVisible = false
-    }
+      this.isVisible = false;
+    },
   },
 };
 </script>
@@ -136,7 +134,11 @@ export default {
   }
   &__content {
     display: flex;
-    height: 150px;
+    min-height: 150px;
+    @media (max-width: 1020px) {
+      flex-direction: column;
+      min-height: 300px;
+    }
   }
   &__form {
     display: flex;
@@ -149,6 +151,9 @@ export default {
     display: flex;
     align-items: flex-end;
     justify-content: end;
+    @media (max-width: 1020px) {
+      justify-content: center;
+    }
     &__title {
       @include text(20px);
       margin-right: 10px;
