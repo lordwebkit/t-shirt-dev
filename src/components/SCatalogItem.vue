@@ -1,5 +1,5 @@
 <template>
-  <div class="s-catalog-item">
+  <div class="s-catalog-item" @click="giveParentProductData">
     <img
       id="img"
       :src="getImageUrl(productData.image)"
@@ -7,16 +7,14 @@
       alt="Photo T-shirt"
     />
     <div class="s-catalog-item__info">
-      <p class="s-catalog-item__name s-text">
+      <p class="s-catalog-item__price">
+        {{ productData.price
+        }}<span class="s-catalog-item__price--money">$</span>
+      </p>
+      <p class="s-catalog-item__description">
         {{ productData.name }}
       </p>
-      <p class="s-catalog-item__price s-text_s">
-        price: {{ productData.price }}<span class="s-text_xs">$</span>
-      </p>
     </div>
-    <button class="s-catalog-item__btn s-btn" @click="giveParentProductData">
-      Add to cart
-    </button>
   </div>
 </template>
 
@@ -31,7 +29,7 @@ export default {
       },
     },
   },
-  emits: ["addToCart"],
+  emits: ["openDetails"],
   setup() {
     const getImageUrl = (name) => {
       return new URL(`../assets/images/catalog/${name}`, import.meta.url).href;
@@ -40,7 +38,7 @@ export default {
   },
   methods: {
     giveParentProductData() {
-      this.$emit("addToCart", this.productData);
+      this.$emit("openDetails", this.productData);
     },
   },
 };
@@ -50,34 +48,36 @@ export default {
   flex-basis: 25%;
   box-shadow: 0 0 8px 0 #e0e0e0;
   padding: 10px;
-  margin-bottom: 10px;
+  padding-top: 15px;
+  margin-bottom: 20px;
   text-align: center;
   display: flex;
-  height: 410px;
+  height: 360px;
   flex-direction: column;
   justify-content: space-between;
-
+  cursor: pointer;
   &__image {
     width: 285px;
   }
   &__info {
+    @include text(18px);
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-  }
-  &__name {
-    flex: 2;
+    align-items: flex-start;
+    padding-left: 10px;
+    padding-bottom: 10px;
   }
   &__price {
-    flex: 1;
+    font-weight: 700;
+    font-size: 22px;
+    &--money {
+      font-size: 14px;
+      margin-left: 2px;
+    }
   }
-  &__name,
-  &__price {
-    display: inline-block;
-  }
-  &__btn {
-    width: 100%;
-    padding: 10px;
+  &__description {
+    margin-top: 7px;
   }
 }
 </style>

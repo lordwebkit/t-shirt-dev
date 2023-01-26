@@ -3,63 +3,90 @@
     {
       "image": "1.png",
       "name": "T-shirt classic white",
-      "price": 10,
+      "description": "White unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 10.99,
+      "fabricComposition": "100% cotton",
+      "size": "xs, s, m, l",
       "article": "T1",
       "available": true
     },
     {
       "image": "2.png",
       "name": "T-shirt classic black",
-      "price": 10,
+      "description": "Black unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 10.99,
+      "fabricComposition": "100% cotton",
+      "size": "xs, s, m, l",
       "article": "T2",
       "available": true
     },
     {
       "image": "3.png",
       "name": "T-shirt classic green",
-      "price": 10,
+      "description": "Green unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 10.99,
+      "fabricComposition": "100% cotton",
+      "size": "xs, s, m, l",
       "article": "T3",
       "available": true
     },
     {
       "image": "4.png",
       "name": "T-shirt base maroon",
-      "price": 8,
+      "description": "Maroon unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 11.59,
+      "fabricComposition": "95% cotton, 5% spandex",
+      "size": "s, m, l",
       "article": "T4",
       "available": true
     },
     {
       "image": "5.png",
       "name": "T-shirt base gray",
-      "price": 8,
+      "description": "Gray unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 11.59,
+      "fabricComposition": "95% cotton, 5% spandex",
+      "size": "s, m, l",
       "article": "T5",
       "available": false
     },
     {
       "image": "6.png",
       "name": "T-shirt base dark blue",
-      "price": 8,
+      "description": "Blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 11.59,
+      "fabricComposition": "95% cotton, 5% spandex",
+      "size": "s, m, l",
       "article": "T6",
       "available": true
     },
     {
       "image": "7.png",
       "name": "T-shirt summer lemmony",
-      "price": 9,
+      "description": "Lemmony unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 12.99,
+      "fabricComposition": "95% cotton, 5% poliester",
+      "size": "xs, s, m, xl",
       "article": "T7",
       "available": true
     },
     {
       "image": "8.png",
       "name": "T-shirt summer pink",
-      "price": 9,
+      "description": "Pink unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 12.99,
+      "fabricComposition": "95% cotton, 5% poliester",
+      "size": "xs, s, m, xl",
       "article": "T8",
       "available": true
     },
     {
       "image": "9.png",
       "name": "T-shirt summer bright blue",
-      "price": 9,
+      "description": "Bright blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 12.99,
+      "fabricComposition": "95% cotton, 5% poliester",
+      "size": "xs, s, m, xl",
       "article": "T9",
       "available": true
     }

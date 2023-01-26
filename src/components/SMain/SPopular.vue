@@ -58,8 +58,7 @@ export default {
     carouselResize() {
       const pageSize = document.documentElement.scrollWidth;
       this.carouselSize = pageSize > 1010 ? 980 : pageSize - 30;
-      this.carouselHeight =
-        pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50;
+      this.carouselHeight = pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50;
     },
   },
 };

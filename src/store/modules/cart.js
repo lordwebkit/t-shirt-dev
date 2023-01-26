@@ -5,6 +5,7 @@ export default {
   },
   mutations: {
     SET_CART: (state, product) => {
+      // if state not empty
       if (state.cart.length) {
         let unavailable = true;
 
@@ -16,10 +17,12 @@ export default {
         });
 
         if (unavailable) {
-          state.cart.push(Object.assign(product, { quantity: 1 }));
+          state.cart.push(Object.assign(product, { quantity: product.count }));
         }
-      } else {
-        state.cart.push(Object.assign(product, { quantity: 1 }));
+      }
+      // if state empty
+      else {
+        state.cart.push(Object.assign(product, { quantity: product.count }));
       }
     },
     REMOVE_FROM_CART: (state, index) => {
