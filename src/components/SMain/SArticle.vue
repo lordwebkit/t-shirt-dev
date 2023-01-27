@@ -4,26 +4,25 @@
       <h2 class="s-article__title">Arcticle</h2>
       <div class="s-article__items">
         <s-article-item
-          v-for="itemData in itemsData"
-          :key="itemData"
-          :item-data="itemData"
+          v-for="article in articles"
+          :key="article"
+          :item-data="article"
           @show-popup="showPopup"
         />
       </div>
     </div>
     <s-popup
       :is-visible="isVisible"
-      :popup-content="popupContent"
       @close-popup="closePopup"
     >
       <template #header>
-        <h2 class="s-popup__title">{{ popupContent.title }}</h2>
+        <h2 class="s-popup__title">{{ articleData.title }}</h2>
       </template>
       <template #content>
         <div class="s-popup__content">
           <div class="s-popup__text-wrapper">
             <p
-              v-for="string in popupContent.text"
+              v-for="string in articleData.text"
               :key="string"
               class="s-popup__text"
             >
@@ -32,7 +31,7 @@
           </div>
           <div class="s-popup__img-wrapper">
             <img
-              :src="getImageUrl(popupContent.img)"
+              :src="getImageUrl(articleData.img)"
               alt="image sheme t-shirts"
             />
           </div>
@@ -47,58 +46,28 @@
 <script>
 import SArticleItem from "./SArticleItem.vue";
 import SPopup from "../SPopup.vue";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "SArticle",
   components: { SArticleItem, SPopup },
   data() {
     return {
-      itemsData: [
-        {
-          title: "Choose size",
-          classModification: "first",
-          text: [
-            "Choose your T-shirt and measure with a meter",
-            "The width on the dimensional grid is indicated by the letter A,",
-            "Measure under the armpits, from seam to seam, as shown by the red line.",
-            "The length of the sleeve on the dimensional grid is indicated by the letter C,",
-            "Next, compare your measurements with our size table.",
-            "Estimating plus / minus a couple of centimeters and choose the size.",
-          ],
-          img: "1.jpg",
-        },
-        {
-          title: "Take care of a t-shirt",
-          classModification: "second",
-          text: [
-            "Wash inside out, only in a washing machine,",
-            "delicate mode, up to 40 degrees, not higher than 600 rpm,",
-            "do not use a machine dryer, dry only on a hanger,",
-            "without direct sunlight on the fabric.",
-            "",
-          ],
-          img: "2.jpg",
-        },
-        {
-          title: "Remove stains",
-          classModification: "third",
-          text: [
-            "The stain remover must be applied to the outer and wrong side",
-            "of the clothing and left for half an hour.",
-            "Then rinse with water and machine wash.",
-            "For old stains, the treatment time should be doubled.",
-          ],
-          img: "3.png",
-        },
-      ],
       isVisible: false,
-      popupContent: {},
+      articleData: {},
     };
   },
+  computed: {
+    ...mapGetters("articles", ["articles"]),
+  },
+  mounted() {
+    this.getArticlesFromApi();
+  },
   methods: {
-    showPopup(itemData) {
+    ...mapActions("articles", ["getArticlesFromApi"]),
+    showPopup(articleData) {
       this.isVisible = true;
-      this.popupContent = itemData;
+      this.articleData = articleData;
     },
     closePopup() {
       this.isVisible = false;
