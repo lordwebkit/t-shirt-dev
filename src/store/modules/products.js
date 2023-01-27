@@ -36,6 +36,7 @@ export default {
       }
     },
     openDetails({ commit }, product) {
+      console.log(product);
       commit("SET_DETAILS_TO_STATE", Object.assign({}, product));
     },
     closeDetails({ commit }) {

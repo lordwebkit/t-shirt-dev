@@ -1,15 +1,17 @@
 <template>
   <div class="s-popular-item">
-    <router-link :to="{ name: 'catalog' }">
+    <router-link :to="{ name: 'catalog' }" @click="openDetails(itemData)">
       <img
         class="s-popular-item__image"
-        :src="getImageUrl(itemData.image, 'popular')"
+        :src="getImageUrl(itemData.prevImage, 'popular')"
         alt="Photo popular t-shirt"
       />
     </router-link>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "SPopularItem",
   props: {
@@ -25,6 +27,12 @@ export default {
     };
     return { getImageUrl };
   },
+  methods: {
+    ...mapActions("products", ["openDetails"]),
+    log() {
+      console.log('hi');
+    }
+  }
 };
 </script>
 <style lang="scss">

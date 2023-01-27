@@ -91,6 +91,41 @@
       "available": true
     }
   ],
+  "popular": [
+    {
+      "prevImage": "1.jpg",
+      "image": "2.png",
+      "name": "T-shirt classic black",
+      "description": "Black unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 10.99,
+      "fabricComposition": "100% cotton",
+      "size": "xs, s, m, l",
+      "article": "T2",
+      "available": true
+    },
+    {
+      "prevImage": "2.jpg",
+      "image": "5.png",
+      "name": "T-shirt base gray",
+      "description": "Gray unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 11.59,
+      "fabricComposition": "95% cotton, 5% spandex",
+      "size": "s, m, l",
+      "article": "T5",
+      "available": false
+    },
+    {
+      "prevImage": "3.jpg",
+      "image": "1.png",
+      "name": "T-shirt classic white",
+      "description": "White unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+      "price": 10.99,
+      "fabricComposition": "100% cotton",
+      "size": "xs, s, m, l",
+      "article": "T1",
+      "available": true
+    }
+  ],
   "publication": [
     {
       "image": "1.jpg",
@@ -106,23 +141,6 @@
       "image": "3.jpg",
       "name": "Publication model 3",
       "article": "P3"
-    }
-  ],
-  "popular": [
-    {
-      "image": "1.jpg",
-      "name": "Black base model",
-      "article": "C1"
-    },
-    {
-      "image": "2.jpg",
-      "name": "Gray base model",
-      "article": "C2"
-    },
-    {
-      "image": "3.jpg",
-      "name": "White base model",
-      "article": "C3"
     }
   ],
   "questionnaire": [
