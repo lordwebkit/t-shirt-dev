@@ -16,7 +16,10 @@
       </div>
     </section>
   </div>
-  <s-popup :is-visible="details.length == 0 ? false : true" @close-popup="closeDetails">
+  <s-popup
+    :is-visible="details.length == 0 ? false : true"
+    @close-popup="closeDetails"
+  >
     <template #header>
       <h2 class="s-popup__title">{{ details.name }}</h2>
     </template>
@@ -98,9 +101,14 @@ export default {
   },
   mounted() {
     this.getProductsFromApi();
+    window.scrollTo(0, 0)
   },
   methods: {
-    ...mapActions("products", ["getProductsFromApi", "openDetails", "closeDetails"]),
+    ...mapActions("products", [
+      "getProductsFromApi",
+      "openDetails",
+      "closeDetails",
+    ]),
     ...mapActions("cart", ["addToCart"]),
     sendAndClose(product) {
       this.addToCart(product);

@@ -1,6 +1,6 @@
 <template>
   <div class="s-popular-item">
-    <router-link :to="{ name: 'catalog' }" @click="openDetails(itemData)">
+    <router-link :to="{ name: 'catalog' }" @click="delayedOpenDetails">
       <img
         class="s-popular-item__image"
         :src="getImageUrl(itemData.prevImage, 'popular')"
@@ -10,7 +10,7 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
   name: "SPopularItem",
@@ -29,10 +29,12 @@ export default {
   },
   methods: {
     ...mapActions("products", ["openDetails"]),
-    log() {
-      console.log('hi');
-    }
-  }
+    delayedOpenDetails() {
+      setTimeout(() => {
+        this.openDetails(this.itemData);
+      }, 200);
+    },
+  },
 };
 </script>
 <style lang="scss">

@@ -15,12 +15,12 @@ export default {
       details.size = details.size.split(", ").map((size) => size.toUpperCase());
       details.count = 1;
       details.visible = true;
-      
+
       state.details = details;
     },
     CLOSE_DETAILS: (state) => {
       state.details = [];
-    }
+    },
   },
   actions: {
     async getProductsFromApi({ commit }) {
@@ -49,6 +49,6 @@ export default {
     },
     details(state) {
       return state.details;
-    }
+    },
   },
 };
