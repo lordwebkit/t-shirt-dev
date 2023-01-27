@@ -24,10 +24,6 @@ export default {
       type: Boolean,
       default: () => false,
     },
-    popupContent: {
-      type: Object,
-      default: () => {},
-    },
   },
   emits: ["close-popup"],
   methods: {
