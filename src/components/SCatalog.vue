@@ -16,33 +16,33 @@
       </div>
     </section>
   </div>
-  <s-popup :is-visible="detailsVisible" @close-popup="closeDetails">
+  <s-popup :is-visible="details.length == 0 ? false : true" @close-popup="closeDetails">
     <template #header>
-      <h2 class="s-popup__title">{{ detailsContent.name }}</h2>
+      <h2 class="s-popup__title">{{ details.name }}</h2>
     </template>
     <template #content>
       <div class="s-popup__content">
         <div class="s-popup__image-wrapper">
           <img
             class="s-popup__image"
-            :src="getImageUrl(detailsContent.image)"
+            :src="getImageUrl(details.image)"
             alt="T-shirt classic white"
           />
         </div>
         <div class="s-popup__info">
-          <p class="s-popup__price">{{ detailsContent.price }}$</p>
+          <p class="s-popup__price">{{ details.price }}$</p>
           <p
-            v-for="description in detailsContent.description"
+            v-for="description in details.description"
             :key="description"
             class="s-popup__description"
           >
             {{ description }}
           </p>
           <p class="s-popup__fabric-composition">
-            {{ detailsContent.fabricComposition }}
+            {{ details.fabricComposition }}
           </p>
           <label
-            v-for="size in detailsContent.size"
+            v-for="size in details.size"
             :key="size"
             :for="`s-popup__${size}`"
             class="s-popup__size-label"
@@ -53,7 +53,7 @@
               name="s-popup__size"
               class="s-popup__size-input"
               :value="size"
-              :checked="detailsContent.size[1] == size"
+              :checked="details.size[1] == size"
             />
             <p class="s-popup__size-text">
               {{ size }}
@@ -62,23 +62,15 @@
           <div class="s-popup__quantity">
             <span
               class="s-popup__quantity-minus"
-              @click="
-                detailsContent.count > 1
-                  ? detailsContent.count--
-                  : detailsContent.count
-              "
+              @click="details.count > 1 ? details.count-- : details.count"
             ></span>
-            <p class="s-popup__quantity-text">{{ detailsContent.count }}</p>
+            <p class="s-popup__quantity-text">{{ details.count }}</p>
             <span
               class="s-popup__quantity-plus"
-              @click="
-                detailsContent.count < 5
-                  ? detailsContent.count++
-                  : detailsContent.count
-              "
+              @click="details.count < 5 ? details.count++ : details.count"
             ></span>
           </div>
-          <button class="s-popup__button" @click="sendAndClose(detailsContent)">
+          <button class="s-popup__button" @click="sendAndClose(details)">
             Add to cart
           </button>
         </div>
@@ -98,40 +90,23 @@ export default {
     SPopup,
   },
   data() {
-    return {
-      detailsVisible: false,
-      detailsContent: {},
-    };
+    return {};
   },
   computed: {
-    ...mapGetters("products", ["products"]),
+    ...mapGetters("products", ["products", "details"]),
     ...mapGetters("cart", ["cart"]),
   },
   mounted() {
     this.getProductsFromApi();
   },
   methods: {
-    ...mapActions("products", ["getProductsFromApi"]),
+    ...mapActions("products", ["getProductsFromApi", "openDetails", "closeDetails"]),
     ...mapActions("cart", ["addToCart"]),
-    openDetails(product) {
-      this.detailsContent = Object.assign({}, product);
-      this.detailsContent.description =
-        this.detailsContent.description.split(".");
-      this.detailsContent.size = this.detailsContent.size
-        .split(", ")
-        .map((size) => size.toUpperCase());
-      this.detailsContent.count = 1;
-      this.detailsVisible = true;
-    },
     sendAndClose(product) {
       this.addToCart(product);
       this.closeDetails();
     },
-    closeDetails() {
-      this.detailsVisible = false;
-    },
     getImageUrl(name) {
-      console.log("convectoring");
       return new URL(`../assets/images/catalog/${name}`, import.meta.url).href;
     },
   },

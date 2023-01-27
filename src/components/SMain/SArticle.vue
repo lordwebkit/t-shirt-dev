@@ -11,10 +11,7 @@
         />
       </div>
     </div>
-    <s-popup
-      :is-visible="isVisible"
-      @close-popup="closePopup"
-    >
+    <s-popup :is-visible="isVisible" @close-popup="closePopup">
       <template #header>
         <h2 class="s-popup__title">{{ articleData.title }}</h2>
       </template>
