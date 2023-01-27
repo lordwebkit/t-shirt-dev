@@ -4,9 +4,10 @@
       <div class="s-cart__title-wrapper">
         <h2 class="s-cart__title">
           Cart
-          <span :class="cartEmpty ? 's-cart_inline-block' : 's-cart_none'"
-            >is empty please add any thing
-          </span>
+          <div :class="cartEmpty ? 's-cart_flex' : 's-cart_none'">
+            is empty please add any thing
+            <span class="s-cart__cart-empty"></span>
+          </div>
         </h2>
       </div>
       <s-cart-item
@@ -55,9 +56,18 @@ export default {
   }
   &__title {
     @include title(32px);
+    display: flex;
+    align-items: center;
     &-wrapper {
       margin: 20px 0 25px 0;
     }
+  }
+  &__cart-empty {
+    display: inline-block;
+    width: 140px;
+    height: 100px;
+    background: url("@/assets/icons/cart-empty.svg") no-repeat center center;
+    background-size: cover;
   }
   &__buy {
     padding: 10px 30px;
@@ -70,6 +80,8 @@ export default {
   }
   &_flex {
     display: flex;
+    align-items: center;
+    margin-left: 10px;
   }
   &_none {
     display: none;
