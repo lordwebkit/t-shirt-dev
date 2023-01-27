@@ -78,10 +78,7 @@
               "
             ></span>
           </div>
-          <button
-            class="s-popup__button"
-            @click="sendAndClose(detailsContent)"
-          >
+          <button class="s-popup__button" @click="sendAndClose(detailsContent)">
             Add to cart
           </button>
         </div>

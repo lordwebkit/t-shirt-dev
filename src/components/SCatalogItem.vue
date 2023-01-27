@@ -56,6 +56,16 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.01);
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    box-shadow: black 0 0 2px;
+    margin-bottom: 18px;
+    .s-catalog-item__image {
+      width: 283px;
+    }
+  }
   &__image {
     width: 285px;
   }
