@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Raleway:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Raleway:wght@400;600&display=swap");
 
 @mixin grid($mw: 980px) {
   max-width: $mw;
@@ -8,8 +8,9 @@
     padding-right: 15px;
   }
 }
-@mixin title($fs: 46px) {
+@mixin title($fs: 46px, $fw: 400) {
   font-family: "Inter", sans-serif;
+  font-weight: $fw;
   font-size: $fs;
 }
 @mixin text($fs: 24px, $fw: 400) {
@@ -19,10 +20,11 @@
 }
 @mixin btn($fs: 20px) {
   font-size: $fs;
-  font-family: "Inter", sans-serif;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
   background-color: #646f5e;
   color: $color-w;
-  font-weight: 600;
+  font-weight: 400;
   border: 1px solid rgb(62, 80, 53);
   transition: background-color, box-shadow 0.2s ease;
   &:hover {
