@@ -33,7 +33,7 @@ export default {
     display: inline-block;
   }
   &__title {
-    @include title(18px);
+    @include title(18px, 600);
   }
   &__info {
     width: 70%;

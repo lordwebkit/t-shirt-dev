@@ -204,7 +204,7 @@ export default {
     padding: 10px 5px;
   }
   &__text {
-    @include text();
+    @include text(22px);
     text-align: center;
     &-wrapper {
       flex: 1;

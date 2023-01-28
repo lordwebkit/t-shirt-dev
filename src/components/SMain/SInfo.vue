@@ -7,10 +7,9 @@
         alt="Founder T-shirt shop"
       />
       <p class="s-bio s-info__bio">
-        <span class="s-bio__headword"></span> - is an American brand of men's
-        T-shirts. The founder and ideological inspirer is Robert Polson. Our
-        brand name was chosen by Robert's 6 year old daughter as the "best in
-        the world"
+        <span class="s-bio__headword"></span> - is an American menswear brand.
+        The founder and ideological inspirer is Robert Paulson.Our brand was
+        chosen by Robert's 6-year-old daughter as "the best in the world".
       </p>
       <router-link class="s-info__button" :to="{ name: 'catalog' }">
         Go to catalog
@@ -92,7 +91,7 @@ export default {
   &__bio {
     margin-left: 30px;
     margin-bottom: 25px;
-    max-width: 500px;
+    max-width: 525px;
     @media (max-width: 1024px) {
       max-width: 420px;
     }
@@ -117,8 +116,8 @@ export default {
   }
 }
 .s-bio {
-  @include text(25px, 500);
-  text-align: center;
+  @include text(25px);
+  text-align: left;
   line-height: 1.3;
   background-color: rgb(199, 209, 199);
   color: rgb(24, 24, 24);
@@ -150,7 +149,7 @@ export default {
     width: 115px;
     height: 30px;
     display: inline-block;
-    transform: translate(6px, 6px);
+    transform: translate(-6px, 6px);
     @media (max-width: 750px) {
       width: 104px;
       transform: translateY(9px);
