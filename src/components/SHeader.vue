@@ -32,12 +32,19 @@
         <router-link :to="{ name: 'cart' }" class="s-header__link-text">
           <p>Cart</p>
           <span class="s-header__link-decore s-header__cart-decore"></span>
+          <span
+            v-if="cart.length == 0 ? false : true"
+            class="s-header__link-count"
+            >{{ cart.length }}</span
+          >
         </router-link>
       </div>
     </header>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "SHeader",
   setup() {
@@ -45,6 +52,9 @@ export default {
       return new URL(`../assets/icons/${name}`, import.meta.url).href;
     };
     return { getImageUrl };
+  },
+  computed: {
+    ...mapGetters("cart", ["cart"]),
   },
 };
 </script>
@@ -62,7 +72,7 @@ export default {
   }
   &__link {
     @include text(18px);
-    width: 200px;
+    width: 220px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,6 +80,9 @@ export default {
       text-decoration: none;
       color: black;
       position: relative;
+      display: flex;
+      align-items: center;
+      height: 20px;
       &:hover .s-header__link-decore {
         opacity: 1;
       }
@@ -83,6 +96,12 @@ export default {
       left: 0;
       opacity: 0;
       transition: all 0.3s ease;
+    }
+    &-count {
+      margin-left: 5px;
+      font-size: 22px;
+      line-height: 1;
+      padding-bottom: 4px;
     }
   }
   &__catalog {
@@ -99,6 +118,7 @@ export default {
     }
     &-decore {
       width: 35px;
+      bottom: 2px;
     }
   }
 }
