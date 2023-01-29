@@ -17,63 +17,64 @@
     </section>
   </div>
   <s-popup
-    :is-visible="details.length == 0 ? false : true"
+    :is-visible="productDetails.length == 0 ? false : true"
     @close-popup="closeDetails"
   >
     <template #header>
-      <h2 class="s-popup__title">{{ details.name }}</h2>
+      <h2 class="s-popup__title">{{ productDetails.name }}</h2>
     </template>
     <template #content>
       <div class="s-popup__content">
         <div class="s-popup__image-wrapper">
           <img
             class="s-popup__image"
-            :src="getImageUrl(details.image)"
+            :src="getImageUrl(productDetails.image)"
             alt="T-shirt classic white"
           />
         </div>
         <div class="s-popup__info">
-          <p class="s-popup__price">{{ details.price }}$</p>
+          <p class="s-popup__price">{{ productDetails.price }}$</p>
           <p
-            v-for="description in details.description"
+            v-for="description in productDetails.description"
             :key="description"
             class="s-popup__description"
           >
             {{ description }}
           </p>
           <p class="s-popup__fabric-composition">
-            {{ details.fabricComposition }}
+            {{ productDetails.fabricComposition }}
           </p>
           <label
-            v-for="size in details.size"
-            :key="size"
-            :for="`s-popup__${size}`"
+            v-for="availSize in productDetails.availSize"
+            :key="availSize"
+            :for="`s-popup__${availSize}`"
             class="s-popup__size-label"
           >
             <input
-              :id="`s-popup__${size}`"
+              :id="`s-popup__${availSize}`"
               type="radio"
               name="s-popup__size"
               class="s-popup__size-input"
-              :value="size"
-              :checked="details.size[1] == size"
+              :value="availSize"
+              :checked="productDetails.availSize[1] == availSize"
+              @click="changeProductDetailsSize(availSize)"
             />
             <p class="s-popup__size-text">
-              {{ size }}
+              {{ availSize }}
             </p>
           </label>
           <div class="s-popup__quantity">
             <span
               class="s-popup__quantity-minus"
-              @click="details.count > 1 ? details.count-- : details.count"
+              @click="decrementQuantityProductDetails"
             ></span>
-            <p class="s-popup__quantity-text">{{ details.count }}</p>
+            <p class="s-popup__quantity-text">{{ productDetails.quantity }}</p>
             <span
               class="s-popup__quantity-plus"
-              @click="details.count < 5 ? details.count++ : details.count"
+              @click="incrementQuantityProductDetails"
             ></span>
           </div>
-          <button class="s-popup__button" @click="sendAndClose(details)">
+          <button class="s-popup__button" @click="sendAndClose(productDetails)">
             Add to cart
           </button>
         </div>
@@ -93,21 +94,27 @@ export default {
     SPopup,
   },
   data() {
-    return {};
+    return {
+      watch: {},
+    };
   },
   computed: {
-    ...mapGetters("products", ["products", "details"]),
+    ...mapGetters("products", ["products", "productDetails"]),
     ...mapGetters("cart", ["cart"]),
   },
   mounted() {
     this.getProductsFromApi();
     window.scrollTo(0, 0);
+    this.watch = this.productDetails;
   },
   methods: {
     ...mapActions("products", [
       "getProductsFromApi",
       "openDetails",
       "closeDetails",
+      "incrementQuantityProductDetails",
+      "decrementQuantityProductDetails",
+      "changeProductDetailsSize",
     ]),
     ...mapActions("cart", ["addToCart"]),
     sendAndClose(product) {

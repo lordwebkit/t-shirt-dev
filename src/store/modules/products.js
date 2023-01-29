@@ -4,22 +4,38 @@ export default {
   namespaced: true,
   state: {
     products: [],
-    details: [],
+    productDetails: [],
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
     },
-    SET_DETAILS_TO_STATE: (state, details) => {
-      details.description = details.description.split(".");
-      details.size = details.size.split(", ").map((size) => size.toUpperCase());
-      details.count = 1;
-      details.visible = true;
+    SET_PRODUCT_DETAILS_TO_STATE: (state, productDetails) => {
+      productDetails.description = productDetails.description.split(".");
+      productDetails.availSize = productDetails.availSize
+        .split(", ")
+        .map((size) => size.toUpperCase());
+      productDetails.size = productDetails.availSize[1];
+      productDetails.quantity = 1;
+      productDetails.visible = true;
 
-      state.details = details;
+      state.productDetails = productDetails;
     },
-    CLOSE_DETAILS: (state) => {
-      state.details = [];
+    CLOSE_PRODUCT_DETAILS: (state) => {
+      state.productDetails = [];
+    },
+    INCREMENT_QUANTITY_PRODUCT_DETAILS: (state) => {
+      state.productDetails.quantity < 5
+        ? state.productDetails.quantity++
+        : state.productDetails.quantity;
+    },
+    DECREMENT_QUANTITY_PRODUCT_DETAILS: (state) => {
+      state.productDetails.quantity > 1
+        ? state.productDetails.quantity--
+        : state.productDetails.quantity;
+    },
+    CHANGE_PRODUCT_DETAILS_SIZE: (state, size) => {
+      state.productDetails.size = size;
     },
   },
   actions: {
@@ -35,20 +51,28 @@ export default {
         return error;
       }
     },
-    openDetails({ commit }, product) {
-      console.log(product);
-      commit("SET_DETAILS_TO_STATE", Object.assign({}, product));
+    openDetails({ commit }, productDetails) {
+      commit("SET_PRODUCT_DETAILS_TO_STATE", Object.assign({}, productDetails));
+    },
+    incrementQuantityProductDetails({ commit }) {
+      commit("INCREMENT_QUANTITY_PRODUCT_DETAILS");
+    },
+    decrementQuantityProductDetails({ commit }) {
+      commit("DECREMENT_QUANTITY_PRODUCT_DETAILS");
+    },
+    changeProductDetailsSize({ commit }, size) {
+      commit("CHANGE_PRODUCT_DETAILS_SIZE", size);
     },
     closeDetails({ commit }) {
-      commit("CLOSE_DETAILS");
+      commit("CLOSE_PRODUCT_DETAILS");
     },
   },
   getters: {
     products(state) {
       return state.products;
     },
-    details(state) {
-      return state.details;
+    productDetails(state) {
+      return state.productDetails;
     },
   },
 };

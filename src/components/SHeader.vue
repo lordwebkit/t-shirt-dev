@@ -35,7 +35,7 @@
           <span
             v-if="cart.length == 0 ? false : true"
             class="s-header__link-count"
-            >{{ cart.length }}</span
+            >{{ cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0) }}</span
           >
         </router-link>
       </div>

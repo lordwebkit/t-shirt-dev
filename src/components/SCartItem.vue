@@ -5,11 +5,15 @@
       :src="getImageUrl(cartItemData.image)"
       alt="Photo T-shirt"
     />
-    <div class="s-cart-item__info s-text_s">
+    <div class="s-cart-item__info">
       <p>{{ cartItemData.name }}</p>
       <p>{{ cartItemData.price }}$</p>
     </div>
-    <div class="s-cart-item__quantity s-text_xs">
+    <div class="s-cart-item__size">
+      <p>Size</p>
+      <p>{{ cartItemData.size }}</p>
+    </div>
+    <div class="s-cart-item__quantity">
       <p>Quantity</p>
       <div class="s-cart-item-quantity__info">
         <span

@@ -20,7 +20,7 @@
         class="s-cart__buy-wrapper"
         :class="cartEmpty ? 's-cart_none' : 's-cart_flex'"
       >
-        <p class="s-text s-cart__total">Total: {{ cartTotalCost }}$</p>
+        <p class="s-text s-cart__total">Total: {{ cartTotalCost.toFixed(2) }}$</p>
         <button class="s-btn s-cart__buy">BUY</button>
       </div>
     </section>

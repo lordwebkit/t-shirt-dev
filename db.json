@@ -6,7 +6,7 @@
       "description": "White unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 10.99,
       "fabricComposition": "100% cotton",
-      "size": "xs, s, m, l",
+      "availSize": "xs, s, m, l",
       "article": "T1",
       "available": true
     },
@@ -16,7 +16,7 @@
       "description": "Black unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 10.99,
       "fabricComposition": "100% cotton",
-      "size": "xs, s, m, l",
+      "availSize": "xs, s, m, l",
       "article": "T2",
       "available": true
     },
@@ -26,7 +26,7 @@
       "description": "Green unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 10.99,
       "fabricComposition": "100% cotton",
-      "size": "xs, s, m, l",
+      "availSize": "xs, s, m, l",
       "article": "T3",
       "available": true
     },
@@ -36,7 +36,7 @@
       "description": "Maroon unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 11.59,
       "fabricComposition": "95% cotton, 5% spandex",
-      "size": "s, m, l",
+      "availSize": "s, m, l",
       "article": "T4",
       "available": true
     },
@@ -46,7 +46,7 @@
       "description": "Gray unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 11.59,
       "fabricComposition": "95% cotton, 5% spandex",
-      "size": "s, m, l",
+      "availSize": "s, m, l",
       "article": "T5",
       "available": false
     },
@@ -56,7 +56,7 @@
       "description": "Blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 11.59,
       "fabricComposition": "95% cotton, 5% spandex",
-      "size": "s, m, l",
+      "availSize": "s, m, l",
       "article": "T6",
       "available": true
     },
@@ -66,7 +66,7 @@
       "description": "Lemmony unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 12.99,
       "fabricComposition": "95% cotton, 5% poliester",
-      "size": "xs, s, m, xl",
+      "availSize": "xs, s, m, xl",
       "article": "T7",
       "available": true
     },
@@ -76,7 +76,7 @@
       "description": "Pink unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 12.99,
       "fabricComposition": "95% cotton, 5% poliester",
-      "size": "xs, s, m, xl",
+      "availSize": "xs, s, m, xl",
       "article": "T8",
       "available": true
     },
@@ -86,7 +86,7 @@
       "description": "Bright blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 12.99,
       "fabricComposition": "95% cotton, 5% poliester",
-      "size": "xs, s, m, xl",
+      "availSize": "xs, s, m, xl",
       "article": "T9",
       "available": true
     }
@@ -99,7 +99,7 @@
       "description": "Black unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 10.99,
       "fabricComposition": "100% cotton",
-      "size": "xs, s, m, l",
+      "availSize": "xs, s, m, l",
       "article": "T2",
       "available": true
     },
@@ -110,7 +110,7 @@
       "description": "Gray unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 11.59,
       "fabricComposition": "95% cotton, 5% spandex",
-      "size": "s, m, l",
+      "availSize": "s, m, l",
       "article": "T5",
       "available": false
     },
@@ -121,7 +121,7 @@
       "description": "White unprinted T-shirt. Stunning quality combined with a refined approach to detail",
       "price": 10.99,
       "fabricComposition": "100% cotton",
-      "size": "xs, s, m, l",
+      "availSize": "xs, s, m, l",
       "article": "T1",
       "available": true
     }

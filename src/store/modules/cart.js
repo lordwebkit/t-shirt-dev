@@ -7,22 +7,20 @@ export default {
     SET_CART: (state, product) => {
       // if state not empty
       if (state.cart.length) {
-        let unavailable = true;
-
-        state.cart.forEach((cartItem) => {
-          if (cartItem.article === product.article) {
-            cartItem.quantity++;
-            unavailable = false;
-          }
-        });
-
-        if (unavailable) {
-          state.cart.push(Object.assign(product, { quantity: product.count }));
+        const cartItemIdx = state.cart.findIndex(
+          (cartItem) =>
+            cartItem.article === product.article &&
+            cartItem.size === product.size
+        );
+        if (cartItemIdx > -1) {
+          state.cart[cartItemIdx].quantity += product.quantity;
+        } else {
+          state.cart.push(product);
         }
       }
       // if state empty
       else {
-        state.cart.push(Object.assign(product, { quantity: product.count }));
+        state.cart.push(product);
       }
     },
     REMOVE_FROM_CART: (state, index) => {
