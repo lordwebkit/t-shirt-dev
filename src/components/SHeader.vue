@@ -35,7 +35,9 @@
           <span
             v-if="cart.length == 0 ? false : true"
             class="s-header__link-count"
-            >{{ cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0) }}</span
+            >{{
+              cart.reduce((sum, cartItem) => sum + cartItem.quantity, 0)
+            }}</span
           >
         </router-link>
       </div>
@@ -72,7 +74,7 @@ export default {
   }
   &__link {
     @include text(18px);
-    width: 220px;
+    width: 210px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,9 +114,9 @@ export default {
   }
   &__cart {
     &-icon {
-      width: 30px;
-      height: 30px;
-      padding-left: 12px;
+      width: 33px;
+      height: 33px;
+      padding-left: 16px;
     }
     &-decore {
       width: 35px;

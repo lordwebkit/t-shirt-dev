@@ -5,29 +5,31 @@
       :src="getImageUrl(cartItemData.image)"
       alt="Photo T-shirt"
     />
-    <div class="s-cart-item__info">
-      <p>{{ cartItemData.name }}</p>
-      <p>{{ cartItemData.price }}$</p>
+    <div class="s-cart-item__info s-info">
+      <p class="s-info__name">{{ cartItemData.name }}</p>
+      <p class="s-info__price">{{ cartItemData.price }}$</p>
     </div>
-    <div class="s-cart-item__size">
-      <p>Size</p>
-      <p>{{ cartItemData.size }}</p>
+    <div class="s-cart-item__size s-size">
+      <p class="s-size__title">Size</p>
+      <p class="s-size__select-size">
+        <span class="s-size__select-decore">{{ cartItemData.size }}</span>
+      </p>
     </div>
-    <div class="s-cart-item__quantity">
-      <p>Quantity</p>
-      <div class="s-cart-item-quantity__info">
+    <div class="s-cart-item__quantity s-quantity">
+      <p class="s-quantity__title">Quantity</p>
+      <div class="s-quantity__inner">
         <span
-          class="s-cart-item-quantity__info-minus"
+          class="s-quantity__minus"
           @click="decrementQuantityCartItem(index)"
         ></span>
-        {{ cartItemData.quantity }}
+        <p class="s-quantity__num">{{ cartItemData.quantity }}</p>
         <span
-          class="s-cart-item-quantity__info-plus"
+          class="s-quantity__plus"
           @click="incrementQuantityCartItem(index)"
         ></span>
       </div>
     </div>
-    <button class="s-btn s-cart-item__btn" @click="deleteFromCart(index)">
+    <button class="s-cart-item__btn" @click="deleteFromCart(index)">
       Delete
     </button>
   </div>
@@ -67,38 +69,94 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-cart-item {
+  text-align: center;
   margin-top: 12px;
-  padding: 10px;
+  padding: 12px;
+  padding-right: 25px;
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 8px 0 #e0e0e0;
   align-items: center;
   flex-wrap: nowrap;
   &__image {
-    max-width: 80px;
+    max-width: 115px;
   }
   &__btn {
+    @include btn();
+    background-color: #744545;
     padding: 5px 10px;
-  }
-  &-quantity {
-    &__info {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      &-minus,
-      &-plus {
-        width: 15px;
-        height: 15px;
-        background-size: 15px;
-        cursor: pointer;
-      }
-      &-minus {
-        background-image: url("@/assets/icons/minus.svg");
-      }
-      &-plus {
-        background-image: url("@/assets/icons/plus.svg");
-      }
+    &:hover {
+      background-color: #744545;
     }
+  }
+}
+.s-info {
+  &__name {
+    @include title(22px);
+    // text-decoration: underline;
+  }
+  &__price {
+    @include text(22px);
+    margin-top: 10px;
+    background-color: rgb(199, 209, 199);
+    padding: 5px 10px;
+    display: inline-block;
+  }
+}
+.s-size {
+  &__title {
+    @include title(22px);
+    // text-decoration: underline;
+  }
+  &__select-size {
+    @include text(18px);
+    border: 1px solid black;
+    width: 38px;
+    height: 34px;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  &__select-decore {
+    display: inline-block;
+    padding-top: 6px;
+    width: 36px;
+    height: 26px;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+  }
+}
+.s-quantity {
+  &__title {
+    @include title(22px);
+    // text-decoration: underline;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 6px;
+    margin-top: 15px;
+  }
+  &__num {
+    @include text(22px);
+  }
+  &__minus,
+  &__plus {
+    width: 15px;
+    height: 15px;
+    background-size: 13px;
+    cursor: pointer;
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 2px;
+  }
+  &__minus {
+    background-image: url("@/assets/icons/minus.svg");
+  }
+  &__plus {
+    background-image: url("@/assets/icons/plus.svg");
   }
 }
 </style>

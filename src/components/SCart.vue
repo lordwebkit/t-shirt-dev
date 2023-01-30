@@ -20,8 +20,8 @@
         class="s-cart__buy-wrapper"
         :class="cartEmpty ? 's-cart_none' : 's-cart_flex'"
       >
-        <p class="s-text s-cart__total">Total: {{ cartTotalCost.toFixed(2) }}$</p>
-        <button class="s-btn s-cart__buy">BUY</button>
+        <p class="s-cart__total">Total: {{ cartTotalCost.toFixed(2) }}$</p>
+        <button class="s-cart__buy">Buy</button>
       </div>
     </section>
   </div>
@@ -50,6 +50,9 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-cart {
+  &-wrapper {
+    min-height: 70vh;
+  }
   @include grid();
   &_inline-block {
     display: inline-block;
@@ -69,8 +72,12 @@ export default {
     background: url("@/assets/icons/cart-empty.svg") no-repeat center center;
     background-size: cover;
   }
+  &__total {
+    @include title(20px);
+  }
   &__buy {
-    padding: 10px 30px;
+    @include btn();
+    padding: 8px 24px;
     &-wrapper {
       margin-top: 20px;
       display: flex;
