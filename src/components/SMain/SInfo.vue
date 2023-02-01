@@ -6,7 +6,7 @@
         :src="getImageUrl('robert.jpg', 'founder')"
         alt="Founder T-shirt shop"
       />
-      <p class="s-bio s-info__bio">
+      <p class="s-info__bio s-bio">
         <span class="s-bio__headword"></span> - is an American menswear brand.
         The founder and ideological inspirer is Robert Paulson.Our brand was
         chosen by Robert's 6-year-old daughter as "the best in the world".
@@ -31,7 +31,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-info {
-  padding-bottom: 60px;
+  padding-bottom: 59px;
   background: url("@/assets/images/founder/bg.jpg") no-repeat top right;
   position: relative;
   &::before {
@@ -85,7 +85,7 @@ export default {
     }
     @media (max-width: 530px) {
       grid-row-start: 2;
-      margin-top: 40px;
+      margin-top: 25px;
     }
   }
   &__bio {
@@ -111,7 +111,8 @@ export default {
     text-decoration: none;
     @media (max-width: 530px) {
       grid-column-end: 2;
-      margin-top: 35px;
+      margin-top: 20px;
+      padding: 15px 75px;
     }
   }
 }
@@ -149,10 +150,10 @@ export default {
     width: 115px;
     height: 30px;
     display: inline-block;
-    transform: translate(-6px, 6px);
+    transform: translateY(10px);
     @media (max-width: 750px) {
       width: 104px;
-      transform: translateY(9px);
+      transform: translateY(13px);
     }
   }
 }

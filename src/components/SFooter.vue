@@ -169,6 +169,12 @@ export default {
       justify-content: space-between;
       width: 100px;
       margin-top: 8px;
+      @media (max-width: 370px) {
+        flex-direction: column;
+        margin-top: 5px;
+        align-items: center;
+        width: 80px;
+      }
     }
     &__link {
       display: inline-block;
@@ -176,11 +182,9 @@ export default {
       height: 25px;
     }
     &__vk {
-      background-image: url("@/assets/icons/vk.svg");
-      background-size: cover;
-      background-position: 0 -4px;
+      background: url("@/assets/icons/vk.svg") no-repeat center center;
       width: 28px;
-      height: 31px;
+      height: 25px;
     }
     &__youtube {
       background-image: url("@/assets/icons/youtube.svg");

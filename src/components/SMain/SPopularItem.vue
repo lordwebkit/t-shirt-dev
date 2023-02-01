@@ -41,6 +41,26 @@ export default {
 .s-popular-item {
   margin-right: 15px;
   transition: transform 0.3s ease;
+  @media (max-width: 850px) {
+    margin-right: 0;
+    width: calc(50% - 15px);
+    &:first-child {
+      margin-right: 15px;
+    }
+    &:last-child {
+      margin-top: 15px;
+    }
+  }
+  @media (max-width: 530px) {
+    width: 320px;
+    &:first-child {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+    &:last-child {
+      margin-top: 15px;
+    }
+  }
   &:hover {
     transform: scale(1.05);
     border: 1px solid $c-dark-green;

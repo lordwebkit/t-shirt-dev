@@ -124,8 +124,8 @@ export default {
   width: 90%;
   text-align: center;
   &-wrapper {
-    margin-top: 50px;
-    padding: 40px 0;
+    margin-top: 30px;
+    padding: 35px 0;
     background-color: #f8f8f8;
   }
   &__title {
@@ -138,6 +138,8 @@ export default {
     @media (max-width: 1020px) {
       flex-direction: column;
       min-height: 300px;
+      max-width: 520px;
+      margin: 0 auto;
     }
   }
   &__form {

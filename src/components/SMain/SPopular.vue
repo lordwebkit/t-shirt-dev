@@ -13,7 +13,7 @@
       class="s-popular__carousel"
       :item-data="publication"
       :castom-settings="{
-        width: carouselSize,
+        width: carouselWidth,
         height: carouselHeight,
         imgDir: 'publication',
         interval: 5000,
@@ -33,10 +33,10 @@ export default {
     SPopularItem,
   },
   data() {
-    const pageSize = document.documentElement.scrollWidth;
+    const gridWidth = document.documentElement.scrollWidth - 30;
     return {
-      carouselSize: pageSize > 1010 ? 980 : pageSize - 30,
-      carouselHeight: pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50,
+      carouselWidth: gridWidth >= 980 ? 980 : gridWidth,
+      carouselHeight: gridWidth >= 980 ? 305 : 305 / (980 / gridWidth),
     };
   },
   computed: {
@@ -56,22 +56,21 @@ export default {
     ...mapActions("popular", ["getPopularFromApi"]),
     ...mapActions("publication", ["getPublicationFromApi"]),
     carouselResize() {
-      const pageSize = document.documentElement.scrollWidth;
-      this.carouselSize = pageSize > 1010 ? 980 : pageSize - 30;
-      this.carouselHeight = pageSize > 768 ? 305 : 305 - (pageSize / 1000) * 50;
+      const gridWidth = document.documentElement.scrollWidth - 30;
+      this.carouselWidth = gridWidth >= 980 ? 980 : gridWidth;
+      this.carouselHeight = gridWidth >= 980 ? 305 : 305 / (980 / gridWidth);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
 .s-popular {
-  padding-top: 40px;
+  padding-top: 35px;
   @include grid();
   &__title {
-    @include title();
+    @include title(46px);
     text-align: center;
-    font-size: 48px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
   }
   &__carousel {
     height: 305px;
@@ -80,6 +79,11 @@ export default {
   &__catalog {
     display: flex;
     justify-content: space-around;
+    @media (max-width: 850px) {
+      flex-wrap: wrap;
+      max-width: 600px;
+      margin: 0 auto;
+    }
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="s-advantages s-main__advantages">
+  <div class="s-advantages">
     <div class="s-advantages__inner">
       <h2 class="s-title s-advantages__title">Our advantages</h2>
       <div class="s-advantages__items">
@@ -28,9 +28,10 @@ export default {
 <style lang="scss" scoped>
 .s-advantages {
   background-color: #f8f8f8;
+  margin-top: 30px;
   &__inner {
     @include grid();
-    padding: 40px 0;
+    padding: 35px 0;
   }
   &__title {
     @include title(32px);
@@ -43,17 +44,20 @@ export default {
     @media (max-width: 960px) {
       display: grid;
       grid-template-columns: 50% 50%;
-      padding-left: 60px;
-      padding-right: 60px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding-left: 50px;
     }
-    @media (max-width: 660px) {
-      padding-left: 30px;
-      padding-right: 30px;
+    @media (max-width: 680px) {
+      padding-left: 20px;
     }
     @media (max-width: 530px) {
       grid-template-columns: 100%;
-      padding-left: 60px;
-      padding-right: 60px;
+      max-width: 300px;
+      padding-left: 50px;
+    }
+    @media (max-width: 375px) {
+      padding-left: 20px;
     }
   }
 }

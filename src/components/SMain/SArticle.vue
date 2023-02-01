@@ -28,6 +28,7 @@
           </div>
           <div class="s-popup__img-wrapper">
             <img
+              class="s-popup__img"
               :src="getImageUrl(articleData.img)"
               alt="image sheme t-shirts"
             />
@@ -79,7 +80,7 @@ export default {
 <style lang="scss" scoped>
 .s-article {
   @include grid();
-  padding: 50px 0;
+  padding: 35px 0 50px 0;
   &__title {
     @include title();
     text-align: center;
@@ -99,20 +100,46 @@ export default {
     display: flex;
     padding: 40px;
     align-items: center;
+    @media (max-width: 810px) {
+      padding: 40px 10px;
+    }
+    @media (max-width: 660px) {
+      flex-direction: column;
+      padding-top: 0;
+    }
   }
   &__text {
     @include text(24px);
     margin-top: 10px;
+    @media (max-width: 660px) {
+      margin-top: 2px;
+      font-size: 20px;      
+    }
     &:last-child {
       font-size: 18px;
       font-style: italic;
+      @media (max-width: 660px) {
+        font-size: 16px;      
+      }
     }
     &-wrapper {
       flex: 2;
       padding: 0 30px;
+      @media (max-width: 810px) {
+        padding: 0;
+      }
+      @media (max-width: 710px) {
+        flex: 1;
+      }
     }
   }
   &__img {
+    @media (max-width: 710px) {
+      width: 100%;
+    }
+    @media (max-width: 660px) {
+      margin-top: 10px;
+    }
     &-wrapper {
       flex: 1;
     }

@@ -57,6 +57,11 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 1025px) {
+      width: calc(100% - 30px);
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
   &__close {
     width: 40px;
@@ -67,8 +72,8 @@ export default {
     background-size: cover;
     padding: 0;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 5px;
+    right: 5px;
     transform: rotate(135deg);
     &:hover {
       cursor: pointer;

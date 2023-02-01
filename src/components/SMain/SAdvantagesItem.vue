@@ -38,9 +38,6 @@ export default {
   &__info {
     width: 70%;
     margin: 0 auto;
-    @media (max-width: 960px) {
-      width: 77%;
-    }
   }
   &__text {
     @include text(16px);
@@ -57,9 +54,8 @@ export default {
   }
   &_material {
     &::before {
-      background: url("@/assets/icons/material.svg");
+      background: url("@/assets/icons/material.svg") no-repeat center center;
       height: 40px;
-      width: 40px;
     }
   }
   &_shipping {

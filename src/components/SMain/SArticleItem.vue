@@ -34,6 +34,9 @@ export default {
   align-items: center;
   justify-content: center;
   transition: background-color, box-shadow 0.2s ease;
+  @media (max-width: 822px) {
+    margin-right: 7px;
+  }
   &:hover {
     cursor: pointer;
     border: 1px solid $c-dark-green;
@@ -56,6 +59,9 @@ export default {
     @include title(26px);
     text-align: center;
     color: $color-w;
+    @media (max-width: 370px) {
+      font-size: 22px;
+    }
   }
 }
 </style>
