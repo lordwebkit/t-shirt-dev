@@ -45,7 +45,6 @@ export default {
       state.articles = articles;
     },
   },
-  actions: {},
   getters: {
     articles(state) {
       return state.articles;

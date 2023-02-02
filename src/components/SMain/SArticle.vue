@@ -44,7 +44,7 @@
 <script>
 import SArticleItem from "./SArticleItem.vue";
 import SPopup from "../SPopup.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "SArticle",
@@ -56,13 +56,9 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("articles", ["articles"]),
-  },
-  mounted() {
-    this.getArticlesFromApi();
+    ...mapGetters("articles", ["articles"])
   },
   methods: {
-    ...mapActions("articles", ["getArticlesFromApi"]),
     showPopup(articleData) {
       this.isVisible = true;
       this.articleData = articleData;

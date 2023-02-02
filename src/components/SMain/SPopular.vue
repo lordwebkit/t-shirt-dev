@@ -22,7 +22,7 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import SCarousel from "../SCarousel.vue";
 import SPopularItem from "./SPopularItem.vue";
 
@@ -44,17 +44,12 @@ export default {
     ...mapGetters("publication", ["publication"]),
   },
   mounted() {
-    this.getPopularFromApi();
-    this.getPublicationFromApi();
-
     window.addEventListener("resize", this.carouselResize);
   },
   destroy() {
     window.removeEventListener("resize", this.carouselResize);
   },
   methods: {
-    ...mapActions("popular", ["getPopularFromApi"]),
-    ...mapActions("publication", ["getPublicationFromApi"]),
     carouselResize() {
       const gridWidth = document.documentElement.scrollWidth - 30;
       this.carouselWidth = gridWidth >= 980 ? 980 : gridWidth;

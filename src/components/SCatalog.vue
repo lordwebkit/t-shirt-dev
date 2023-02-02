@@ -103,13 +103,11 @@ export default {
     ...mapGetters("cart", ["cart"]),
   },
   mounted() {
-    this.getProductsFromApi();
     window.scrollTo(0, 0);
     this.watch = this.productDetails;
   },
   methods: {
     ...mapActions("products", [
-      "getProductsFromApi",
       "openDetails",
       "closeDetails",
       "incrementQuantityProductDetails",
