@@ -86,7 +86,7 @@ export default {
     padding: 12px 0;
   }
   @media (max-width: 430px) {
-    width: 100%
+    width: 100%;
   }
   &__image {
     max-width: 115px;

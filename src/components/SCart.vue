@@ -12,11 +12,11 @@
       </div>
       <div class="s-cart__items">
         <s-cart-item
-        v-for="(item, index) in cart"
-        :key="item.article"
-        :cart-item-data="item"
-        :index="index"
-      />
+          v-for="(item, index) in cart"
+          :key="item.article"
+          :cart-item-data="item"
+          :index="index"
+        />
       </div>
       <div
         class="s-cart__buy-wrapper"
