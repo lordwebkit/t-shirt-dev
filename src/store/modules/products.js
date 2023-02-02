@@ -1,9 +1,107 @@
-import axios from "axios";
-
 export default {
   namespaced: true,
   state: {
-    products: [],
+    products: [
+      {
+        image: "1.png",
+        name: "T-shirt classic white",
+        description:
+          "White unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 10.99,
+        fabricComposition: "100% cotton",
+        availSize: "xs, s, m, l",
+        article: "T1",
+        available: true,
+      },
+      {
+        image: "2.png",
+        name: "T-shirt classic black",
+        description:
+          "Black unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 10.99,
+        fabricComposition: "100% cotton",
+        availSize: "xs, s, m, l",
+        article: "T2",
+        available: true,
+      },
+      {
+        image: "3.png",
+        name: "T-shirt classic green",
+        description:
+          "Green unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 10.99,
+        fabricComposition: "100% cotton",
+        availSize: "xs, s, m, l",
+        article: "T3",
+        available: true,
+      },
+      {
+        image: "4.png",
+        name: "T-shirt base maroon",
+        description:
+          "Maroon unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 11.59,
+        fabricComposition: "95% cotton, 5% spandex",
+        availSize: "s, m, l",
+        article: "T4",
+        available: true,
+      },
+      {
+        image: "5.png",
+        name: "T-shirt base gray",
+        description:
+          "Gray unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 11.59,
+        fabricComposition: "95% cotton, 5% spandex",
+        availSize: "s, m, l",
+        article: "T5",
+        available: false,
+      },
+      {
+        image: "6.png",
+        name: "T-shirt base dark blue",
+        description:
+          "Blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 11.59,
+        fabricComposition: "95% cotton, 5% spandex",
+        availSize: "s, m, l",
+        article: "T6",
+        available: true,
+      },
+      {
+        image: "7.png",
+        name: "T-shirt summer lemmony",
+        description:
+          "Lemmony unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 12.99,
+        fabricComposition: "95% cotton, 5% poliester",
+        availSize: "xs, s, m, xl",
+        article: "T7",
+        available: true,
+      },
+      {
+        image: "8.png",
+        name: "T-shirt summer pink",
+        description:
+          "Pink unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 12.99,
+        fabricComposition: "95% cotton, 5% poliester",
+        availSize: "xs, s, m, xl",
+        article: "T8",
+        available: true,
+      },
+      {
+        image: "9.png",
+        name: "T-shirt summer bright blue",
+        description:
+          "Bright blue unprinted T-shirt. Stunning quality combined with a refined approach to detail",
+        price: 12.99,
+        fabricComposition: "95% cotton, 5% poliester",
+        availSize: "xs, s, m, xl",
+        article: "T9",
+        available: true,
+      },
+    ],
     productDetails: [],
   },
   mutations: {
@@ -39,18 +137,6 @@ export default {
     },
   },
   actions: {
-    async getProductsFromApi({ commit }) {
-      try {
-        const products = await axios("http://localhost:3000/products", {
-          method: "GET",
-        });
-        commit("SET_PRODUCTS_TO_STATE", products.data);
-        return products;
-      } catch (error) {
-        console.log(error);
-        return error;
-      }
-    },
     openDetails({ commit }, productDetails) {
       commit("SET_PRODUCT_DETAILS_TO_STATE", Object.assign({}, productDetails));
     },
