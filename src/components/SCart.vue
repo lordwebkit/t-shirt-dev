@@ -10,12 +10,14 @@
           </div>
         </h2>
       </div>
-      <s-cart-item
+      <div class="s-cart__items">
+        <s-cart-item
         v-for="(item, index) in cart"
         :key="item.article"
         :cart-item-data="item"
         :index="index"
       />
+      </div>
       <div
         class="s-cart__buy-wrapper"
         :class="cartEmpty ? 's-cart_none' : 's-cart_flex'"
@@ -51,7 +53,8 @@ export default {
 <style lang="scss" scoped>
 .s-cart {
   &-wrapper {
-    min-height: 70vh;
+    min-height: calc(70vh - 30px);
+    padding-bottom: 30px;
   }
   @include grid();
   &_inline-block {
@@ -64,6 +67,10 @@ export default {
     &-wrapper {
       margin: 20px 0 25px 0;
     }
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
   }
   &__cart-empty {
     display: inline-block;

@@ -69,15 +69,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 .s-cart-item {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
   text-align: center;
   margin-top: 12px;
   padding: 12px;
   padding-right: 25px;
-  display: flex;
-  justify-content: space-between;
   box-shadow: 0 0 8px 0 #e0e0e0;
-  align-items: center;
-  flex-wrap: nowrap;
+  @media (max-width: 730px) {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    flex-direction: column;
+    padding: 12px 0;
+  }
+  @media (max-width: 430px) {
+    width: 100%
+  }
   &__image {
     max-width: 115px;
   }
@@ -93,7 +103,6 @@ export default {
 .s-info {
   &__name {
     @include title(22px);
-    // text-decoration: underline;
   }
   &__price {
     @include text(22px);
@@ -106,7 +115,6 @@ export default {
 .s-size {
   &__title {
     @include title(22px);
-    // text-decoration: underline;
   }
   &__select-size {
     @include text(18px);
@@ -129,7 +137,6 @@ export default {
 .s-quantity {
   &__title {
     @include title(22px);
-    // text-decoration: underline;
   }
   &__inner {
     display: flex;
