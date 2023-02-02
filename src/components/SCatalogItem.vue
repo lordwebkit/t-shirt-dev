@@ -68,6 +68,9 @@ export default {
   }
   &__image {
     width: 285px;
+    @media (max-width: 340px) {
+      width: 270px;
+    }
   }
   &__info {
     @include text(18px);

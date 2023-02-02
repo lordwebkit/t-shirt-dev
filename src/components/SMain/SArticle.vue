@@ -113,13 +113,13 @@ export default {
     margin-top: 10px;
     @media (max-width: 660px) {
       margin-top: 2px;
-      font-size: 20px;      
+      font-size: 20px;
     }
     &:last-child {
       font-size: 18px;
       font-style: italic;
       @media (max-width: 660px) {
-        font-size: 16px;      
+        font-size: 16px;
       }
     }
     &-wrapper {

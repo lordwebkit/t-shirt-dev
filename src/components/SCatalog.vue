@@ -135,6 +135,16 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    @media (max-width: 944px) {
+      max-width: 630px;
+      margin: 0 auto;
+    }
+    @media (max-width: 650px) {
+      max-width: 305px;
+    }
+    @media (max-width: 340px) {
+      max-width: 290px;
+    }
   }
   &__link-cart {
     padding: 10px;
@@ -157,13 +167,24 @@ export default {
   &__content {
     display: flex;
     padding: 15px;
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
   &__info {
     @include text(18px);
     flex: 1;
+    @media (max-width: 600px) {
+      text-align: center;
+      margin-top: 10px;
+    }
   }
   &__image {
     max-height: 400px;
+    margin-right: 10px;
+    @media (max-width: 750px) {
+      max-height: 300px;
+    }
     &-wrapper {
       flex: 1;
       display: flex;
@@ -215,6 +236,9 @@ export default {
     display: flex;
     height: 26px;
     align-items: center;
+    @media (max-width: 600px) {
+      justify-content: center;
+    }
     &-text {
       margin: 0 10px;
       display: inline-block;
@@ -244,6 +268,9 @@ export default {
     @include btn();
     padding: 10px 25px;
     margin-top: 20px;
+    @media (max-width: 600px) {
+      margin-top: 10px;
+    }
   }
 }
 </style>
