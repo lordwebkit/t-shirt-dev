@@ -6,9 +6,9 @@ import SCart from "@/components/SCart.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", name: "main", component: SMain },
-    { path: "/catalog", name: "catalog", component: SCatalog },
-    { path: "/cart", name: "cart", component: SCart, props: true },
+    { path: "/t-shirt/", name: "main", component: SMain },
+    { path: "/t-shirt/catalog", name: "catalog", component: SCatalog },
+    { path: "/t-shirt/cart", name: "cart", component: SCart, props: true },
   ],
 });
 
